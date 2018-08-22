@@ -1,0 +1,140 @@
+body{padding:0; margin:0;}
+.index-active{
+    color: #0e9aef !important;
+    font-weight: bold;
+}
+.index-font-weight{
+    font-size: 16px;
+}
+.index-font-color{
+    color: black !important;
+}
+.img-div{
+    width: 15%;
+}
+.img-div-p{
+    text-align: center;
+}
+.img-div-center{
+    margin: auto;
+    height: 100%!important;
+    cursor: pointer;
+}
+
+.img-div-center-1{
+    margin: auto;
+    height: 100%!important;
+}
+.img-div-center-other{
+    margin: auto;
+    height: 100%!important;
+    cursor: pointer;
+}
+.read-user{
+    color: #0e9aef;
+    cursor: pointer;
+
+}
+.edit-text{
+    width: 30%;
+    border: solid 1px dodgerblue;
+    padding: 1px 5px;
+}
+
+.file-user{
+    color: #0e9aef;
+    cursor: pointer;
+
+}
+.file-edit-text{
+    width: 30%;
+    border: solid 1px dodgerblue;
+    padding: 1px 5px;
+}
+.head-background{
+    background-color: #1e9fff!important;
+
+}
+.head-background-padding{
+    padding: 0px 25px!important;
+}
+.head-background img{
+   padding: 11px 25px!important;
+    width: 70%;
+}
+
+.head-ul li>a:hover{
+    color: #fff!important;;
+    background-color: #1992ec!important;
+}
+.head-ul li{
+    -webkit-tap-highlight-color:red!important;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}
+.navl li>a{
+    color: #cde6fa;
+    font-size: 16px;
+    padding: 15px;
+}
+.navl{
+    /*padding: 15px;*/
+}
+.index-button{
+    margin-bottom: 10px!important;
+    width: 100px!important;
+    background-color: #1e9fff!important;
+}
+.high-color>a{
+    color: white!important;
+    background-color: #1992ec!important;
+    /*display: block;*/
+}
+.blocka{
+    display: block;
+}
+.layui-nav-button{
+    padding: 12px 20px;
+    color: white;
+    border-radius: 2px;
+    font-size: 0;
+    box-sizing: border-box;
+    background-color: white;
+    height: 65px;
+    /*margin-top: 5px;*/
+}
+.ul-border{
+    border-bottom: 1px solid #e5e5e5;
+    border-top: 1px solid #e5e5e5;
+}
+.index-table{
+    margin: 0px!important;
+}
+.layui-nav .layui-this:after, .layui-nav-bar, .layui-nav-tree .layui-nav-itemed:after{
+    background-color:#1e9fff!important;
+    height: 4px!important;
+}
+.layui-btn-green{
+    background-color: #10d2a4!important;
+}
+.swiper-div{
+    width: 100%!important;
+}
+.swiper-div img{
+    width: 90%;
+}
+.disagreementfont{
+    color: red;
+    font-size: 16px;
+}
+.swiper-slide img{
+    width: 100%;
+}
+.btn-read{
+    border: 1px solid #10d2a4!important;
+    color: #10d2a4!important;
+    background-color: rgba(255,255,255,0);
+}
+.col-sm-12{
+    margin-bottom: 2%;
+}

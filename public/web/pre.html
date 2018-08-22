@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="hotcss" content="initial-dpr=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>线上登记系统</title>
+		<link rel="stylesheet" href="css/weui.min.css">
+		<link rel="stylesheet" href="css/jquery-weui.css">
+		<link rel="stylesheet" href="css/demos.css">
+		<link rel="stylesheet" type="text/css" href="css/app.css?v=1" />
+        <script src="js/hotcss.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-2.1.4.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-weui.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/md5.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/pre.js?v=7" type="text/javascript" charset="utf-8"></script>
+</head>
+<body class="pagepre" ontouchstart="">
+<div class="backzoo">
+	 <img  class="backimg" src="img/back.png"/>
+     <span class="backfont">返回</span>
+</div>
+ <img class="pagepreicon" src="img/tu.png"/>
+ <div class="preinputbox">
+ 	<div class="pretop">手机号<span>(用于接收审核结果及相关通知)</span> </div>
+ 	<div class="inputcontain">
+ 		<input type="tel" name="" id="userphone" value="" placeholder="请输入手机号码" />
+ 	</div>
+ 	<div class="pretop margintop26">验证码</div>
+ 	<div class="inputcontain">
+ 		<input type="tel" name="" id="usercode" value="" placeholder="请输入验证码" />
+ 		<span class="getcodebtn">获取验证码</span>
+ 	</div>
+ </div>
+<p class="prepend1">【重要信息】</p>
+<p class="prepend2">根据杭州市房地产市场持续健康发展协调小组《关于实施商品住房公证摇号公开销售工作的通知》的规定，发现购房者提供虚假信息材料或恶意干扰公证摇号销售行为的，房管部门一年内不再受理其限购查档申请。涉及犯罪的，移送司法机关依法追究刑事责任。</p>
+<div class="btn margintop marbottom ">登录</div>
+</body>
+</html>
+<script type="text/javascript">
+	$(".backzoo").click(function(){
+		window.location.href="home.html";
+	})
+</script>

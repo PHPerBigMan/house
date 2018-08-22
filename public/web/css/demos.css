@@ -1,0 +1,78 @@
+body, html {
+  -webkit-tap-highlight-color: transparent;
+}
+.demos-title {
+  text-align: center;
+  font-size: 34px;
+  color: #3cc51f;
+  font-weight: 400;
+  margin: 0 15%;
+}
+
+.demos-sub-title {
+  text-align: center;
+  color: #888;
+  font-size: 14px;
+}
+
+.demos-header {
+  padding: 35px 0;
+}
+
+.demos-content-padded {
+  padding: 15px;
+}
+
+.demos-second-title {
+  text-align: center;
+  font-size: 24px;
+  color: #3cc51f;
+  font-weight: 400;
+  margin: 0 15%;
+}
+
+footer {
+  text-align: center;
+  font-size: 14px;
+  padding: 20px;
+}
+
+footer a {
+  color: #999;
+  text-decoration: none;
+}
+.demostitle{ 
+    text-align: center;
+    font-size: 24px;
+    color: #222;
+    font-weight: 400;
+    margin: 0 15%;}
+.padding20{padding: 35px  0px 10px 0px;}
+.content{  padding: 20px;color: #222;font-size: 16px;
+    color: #565b69;
+    line-height: 30px;
+}
+.weuibtnarea{margin-bottom: 80px;}
+.weui-btn_disabled.weui-btn_primary {
+      background: #bbe1f9;
+}
+
+.weui-btn_primary {
+   background: #57bbf9;
+}
+.weui-cells:before,.weui-cells:after{border: none !important;border-top:none !important;}
+.awidthbox{width: 80%;border-radius:23px;}
+
+
+.weui-btn_primary:not(.weui-btn_disabled):active {
+    color: #fff;
+    background-color: #bbe1f9;
+}
+.weui-check__label:active {
+    background-color: #fff !important;
+}
+
+.weui-btn:after{
+	     border: 1px solid #fff; 
+}
+body{background: #fff;}

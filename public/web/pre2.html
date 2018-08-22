@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>线上登记系统</title>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<link rel="stylesheet" href="css/weui.min.css">
+	<link rel="stylesheet" href="css/jquery-weui.css">
+	<link rel="stylesheet" href="css/demos.css">
+	<script src="js/jquery-2.1.4.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/pre.js?v=6" type="text/javascript" charset="utf-8"></script>
+</head>
+
+  <body class="pre2" ontouchstart="">
+
+
+    <header class="demos-header padding20">
+      <h3 class="demostitle">资金冻结须知</h3>
+    </header>
+    
+    
+    
+    
+    
+<div class="content">
+<p class="normalbox">
+	1、关于银行资金冻结具体操作可登陆查看“登记宝”官方微信公众号公示的《银行资金冻结相关操作指引》。
+</p>
+<p class="normalbox">
+	2、线上登记系统中上传的验资证明必须是《银行资金冻结相关操作指引》中的示意图样式，其他形式概不接受。
+</p>
+<p class="normalbox">
+	3、摇号公示结束后2个工作日内，办理资金冻结解冻可参照《银行资金解冻相关操作指引》。
+</p>
+<p class="normalbox">
+	4、温馨提示：因转账金额及时间受中国银行大小额因素影响，故建议在工作时间进行转账，以免错过线上登记时间。
+</p>
+<p class="normalbox" align="justify" style="margin-left:0.0000pt;text-indent:21.0000pt;text-align:justify;">
+</p>
+</div>
+    
+  
+    <div class="weui-cells weui-cells_checkbox noborder">
+      <label class="weui-cell weui-check__label noborder" for="s11">
+        <div class="weui-cell__hd">
+          <input type="checkbox" class="weui-check" name="checkbox1" id="s11" >
+          <i class="weui-icon-checked"></i>
+        </div>
+        <div class="weui-cell__bd">
+          <p>我同意 《资金冻结须知》</p>
+        </div>
+      </label>
+    </div>
+
+
+
+    <div class="weui-btn-area weuibtnarea">
+      <a class="weui-btn weui-btn_primary  weui-btn_disabled  awidthbox" href="javascript:" id="showTooltips">下一步</a>
+    </div>
+
+<script src="js/jquery-2.1.4.min.js"></script>
+<script src="js/jquery-weui.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#s11").click(function(){
+			var s11checked=$("#s11").prop("checked");
+			console.log(s11checked);
+			if(s11checked){
+				$(".awidthbox").removeClass("weui-btn_disabled");
+			}else{
+				$(".awidthbox").addClass("weui-btn_disabled");
+			}
+		})
+		
+		$("#showTooltips").click(function(){
+			var s11checked=$("#s11").prop("checked");
+			var v=Math.random();
+			if(s11checked){
+				window.location.replace("pre3.html?v="+v);
+			}
+		})
+		
+		
+	})
+	
+</script>
+</body>
+</html>

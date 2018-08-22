@@ -1,0 +1,40 @@
+<!DOCTYPE html >
+<html  class="pageshaking">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="hotcss" content="initial-dpr=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>摇号结果查询</title>
+		<link rel="stylesheet" href="css/weui.min.css">
+		<link rel="stylesheet" href="css/jquery-weui.css">
+		<link rel="stylesheet" href="css/demos.css">
+		<link rel="stylesheet" type="text/css" href="css/shaking.css?v=1" />
+        <script src="js/hotcss.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-2.1.4.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-weui.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/shaking.js?v=7" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+<div class="backzoo">
+	 <img  class="backimg" src="img/back.png"/>
+     <span class="backfont">返回</span>
+</div>
+<img class="pagepreicon" src="img/tu.png"/>
+    <div class="shakebox margintop70">
+    	<div class="shakeboxleft">报名序号</div>
+    	<input type="text" class="shakeboxinput" value="" id="username" placeholder="请输入您的报名序号" />
+    </div>
+    <div class="shakebox margintop20">
+    	<div class="shakeboxleft">手机号码</div>
+    	<input type="text" class="shakeboxinput" value="" id="userphone"  placeholder="请输入您的手机号"  />
+    </div>
+     <div class="btn margintop80 btnok">查询</div>
+</body>
+</html>
+<script type="text/javascript">
+	$(".backzoo").click(function(){
+		window.location.href="home.html";
+	})
+</script>

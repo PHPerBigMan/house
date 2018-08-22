@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>摇号结果查询</title>
+		<!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+	   <style type="text/css">
+	   	*{font-family: "微软雅黑";}
+	   	.titleresult{color: #FFFFFF;font-size:48px;text-align: center;}
+	   	.titlep2{color: #FFFFFF;font-size:30px;text-align: center;margin-top: 160px;}
+	   	.buttondiv{color: #1E9FFF;font-size: 30px;width: 400px;height: 80px;background:#FFFFFF;
+	   	border-radius: 10px;line-height: 80px;font-weight: 500;margin: 0 auto;margin-top:90px ;cursor: pointer;text-align: center;
+	   	}
+	  </style>
+	</head>
+	<body>
+		<div class="top-content" style="margin-top: 120px;">
+              <p class="titleresult">摇号结果查询</p>
+              <p class="titlep2">将身份证放至阅读器后点击立即查询</p>
+			  <div   class="buttondiv">立即查询</div>
+		</div>
+		
+
+        <div class="backstretch" style="width: 100%; left: 0px; top: 0px; overflow: hidden; margin: 0px; padding: 0px; z-index: -999999; position: fixed;"><img src="bj3.jpg" style=" min-height: 100%; position: absolute; margin: 0px; padding: 0px; border: none; width: 100%; max-height: none; max-width: none; z-index: -999999; left: 0px; top: 0px;"></div>
+</body>
+</html>
+
+<script src="jquery-2.1.4.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	var deheight=$(window).height();
+	$(".backstretch").height(deheight);
+</script>
