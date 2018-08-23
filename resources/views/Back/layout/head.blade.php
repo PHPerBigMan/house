@@ -43,7 +43,8 @@
                 </div>
                 <div class="navbar-collapse collapse head-background " id="navbar">
                     <?php
-                    $admin = \App\Model\Admin::where('id',session('admin'))->value('account');
+                    $admin = \App\Model\Admin::where('id',session('admin'))->value('user');
+                    $adminName = \App\Model\Admin::where('id',session('admin'))->value('account');
                     ?>
                     <ul class="navl navbar-nav head-ul " id="list-ul">
                         <li class=<?php if($title == 'house') echo "high-color"?>>
@@ -68,7 +69,7 @@
                         <li>
                             <a href="/loginout" style="padding: 15px 10px" class="blocka">
 
-                                <span>{{ $admin }}</span>
+                                <span>{{ $adminName }}</span>
                                 退出
                             </a>
                         </li>
@@ -83,7 +84,7 @@
             {{--</div>--}}
         {{--</div>--}}
         <div class="footer-copyright" >
-            <p style="margin: 0px;"> Copyright2018, shoufangpai.net. All rights reserved. </p>
+            <p style="margin: 0px;"> Copyright 2018, shoufangpai.com. All rights reserved. </p>
             <p style="font-size: 14px;">© 杭州链芯科技有限公司 | <a href="http://www.miitbeian.gov.cn/" style="font-size: 14px">浙ICP备18008358号-3</a></p>
 
         </div>

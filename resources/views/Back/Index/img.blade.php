@@ -116,44 +116,44 @@
             </div>
         @endif
         @if($data->img->other_housing_situation)
-            @foreach($data->img->other_housing_situation as $v)
-                <div class="swiper-slide" data-hash="other_housing_situation">
-                    <img src="{{ $v }}" alt="其他地区房产证明" title="other_housing_situation">
+            @foreach($data->img->other_housing_situation as $k=>$v)
+                <div class="swiper-slide" data-hash="other_housing_situation_{{ $k+1 }}">
+                    <img src="{{ $v }}" alt="其他地区房产证明" title="other_housing_situation_{{ $k+1 }}">
                 </div>
                 @endforeach
         @endif
         @if($data->img->housing_situation)
-            @foreach($data->img->housing_situation as $v)
-                <div class="swiper-slide  " data-hash="housing_situation">
-                    <img src="{{ $v }}" alt="杭州住房证明" title="housing_situation">
+            @foreach($data->img->housing_situation as $k=>$v)
+                <div class="swiper-slide  " data-hash="housing_situation_{{ $k+1 }}">
+                    <img src="{{ $v }}" alt="杭州住房证明" title="housing_situation_{{ $k+1 }}">
                 </div>
             @endforeach
         @endif
         @if($data->img->security_img)
-            @foreach($data->img->security_img as $v)
-                <div class="swiper-slide  " data-hash="security_img">
-                    <img src="{{ $v }}" alt="社保证明" title="security_img">
+            @foreach($data->img->security_img as $k=>$v)
+                <div class="swiper-slide  " data-hash="security_img_{{ $k+1 }}">
+                    <img src="{{ $v }}" alt="社保证明" title="security_img_{{ $k+1 }}">
                 </div>
             @endforeach
         @endif
         @if($data->img->personal_credit)
-            @foreach($data->img->personal_credit as $v)
-                <div class="swiper-slide" data-hash="personal_credit">
-                    <img src="{{ $v }}" alt="个人征信" title="personal_credit">
+            @foreach($data->img->personal_credit as $k=>$v)
+                <div class="swiper-slide" data-hash="personal_credit_{{ $k+1 }}">
+                    <img src="{{ $v }}" alt="个人征信" title="personal_credit_{{ $k+1 }}">
                 </div>
             @endforeach
         @endif
         @if($data->img->fund_freezing)
-            @foreach($data->img->fund_freezing as $v)
-                <div class="swiper-slide  " data-hash="fund_freezing">
-                    <img src="{{ $v }}" alt="资产证明" title="fund_freezing">
+            @foreach($data->img->fund_freezing as $k=>$v)
+                <div class="swiper-slide  " data-hash="fund_freezing_{{ $k+1 }}">
+                    <img src="{{ $v }}" alt="资产证明" title="fund_freezing_{{ $k+1 }}">
                 </div>
             @endforeach
         @endif
         @if($data->img->divorce_img)
-            @foreach($data->img->divorce_img as $v)
-                <div class="swiper-slide  " data-hash="divorce_img">
-                    <img src="{{ $v }}" alt="离婚材料" title="divorce_img">
+            @foreach($data->img->divorce_img as $k=>$v)
+                <div class="swiper-slide  " data-hash="divorce_img_{{ $k+1 }}">
+                    <img src="{{ $v }}" alt="离婚材料" title="divorce_img_{{ $k+1 }}">
                 </div>
             @endforeach
         @endif

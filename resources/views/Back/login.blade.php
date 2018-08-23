@@ -78,7 +78,7 @@
 		</div>
 
 		<div class="footer-copyright" >
-			<p style="margin: 0px;"> Copyright2018, shoufangpai.net. All rights reserved. </p>
+			<p style="margin: 0px;"> Copyright 2018, shoufangpai.com. All rights reserved. </p>
 			<p style="font-size: 14px;">© 杭州链芯科技有限公司 | <a href="http://www.miitbeian.gov.cn/" style="font-size: 14px;color: white">浙ICP备18008358号-3</a></p>
 		</div>
 		<div class="backstretch" style="width: 100%; left: 0px; top: 0px; overflow: hidden; margin: 0px; padding: 0px; z-index: -999999; position: fixed;"><img src="/login_files/bg.jpg" style=" min-height: 100%; position: absolute; margin: 0px; padding: 0px; border: none; width: 100%; max-height: none; max-width: none; z-index: -999999; left: 0px; top: 0px;"></div>

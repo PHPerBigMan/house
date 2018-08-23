@@ -41,7 +41,7 @@
         {{--审核不通过--}}
         <button class="layui-btn layui-btn-danger layui-btn-radius">复审不通过</button>
         @endif
-        <button class="layui-btn layui-btn-primary layui-btn-radius" onclick="history.go(-1)">返回</button>
+        <button class="layui-btn layui-btn-primary layui-btn-radius" onclick="location.href='/admin/index?status={{ $data->status }}'">返回</button>
     <div class="row">
         <div class="col-sm-3">
             <div class="ibox float-e-margins">
@@ -241,13 +241,13 @@
                                 </div>
                             </div>
                         @endif
-                        @foreach($data->img->housing_situation as $v)
+                        @foreach($data->img->housing_situation as $k=>$v)
                             <div class="file-box">
                                 <div class="file img-div-p">
                                     <span class="corner"></span>
 
                                     <div class="image">
-                                        <img alt="image" class="img-responsive  img-div-center" src="{{ $v }}" data-hash="housing_situation">
+                                        <img alt="image" class="img-responsive  img-div-center" src="{{ $v }}" data-hash="housing_situation_{{ $k+1 }}">
                                     </div>
                                     <div class="file-name">
                                         杭州住房证明
@@ -255,13 +255,13 @@
                                 </div>
                             </div>
                         @endforeach
-                        @foreach($data->img->personal_credit as $v)
+                        @foreach($data->img->personal_credit as $k=>$v)
                             <div class="file-box">
                                 <div class="file img-div-p">
                                     <span class="corner"></span>
 
                                     <div class="image">
-                                        <img alt="image" class="img-responsive  img-div-center" src="{{ $v }}" data-hash="personal_credit">
+                                        <img alt="image" class="img-responsive  img-div-center" src="{{ $v }}" data-hash="personal_credit_{{ $k+1 }}">
                                     </div>
                                     <div class="file-name">
                                         个人征信证明
@@ -269,13 +269,13 @@
                                 </div>
                             </div>
                         @endforeach
-                        @foreach($data->img->fund_freezing as $v)
+                        @foreach($data->img->fund_freezing as $k=>$v)
                             <div class="file-box">
                                 <div class="file img-div-p">
                                     <span class="corner"></span>
 
                                     <div class="image">
-                                        <img alt="image" class="img-responsive  img-div-center" src="{{ $v }}" data-hash="fund_freezing">
+                                        <img alt="image" class="img-responsive  img-div-center" src="{{ $v }}" data-hash="fund_freezing_{{ $k+1 }}">
                                     </div>
                                     <div class="file-name">
                                         资产证明
@@ -284,16 +284,33 @@
                             </div>
                         @endforeach
                         @if($data->img->divorce_img)
-                            @foreach($data->img->divorce_img as $v)
+                            @foreach($data->img->divorce_img as $k=>$v)
                                 <div class="file-box">
                                     <div class="file img-div-p">
                                         <span class="corner"></span>
 
                                         <div class="image">
-                                            <img alt="image" class="img-responsive  img-div-center" src="{{ $v }}" data-hash="divorce_img">
+                                            <img alt="image" class="img-responsive  img-div-center" src="{{ $v }}" data-hash="divorce_img_{{ $k+1 }}">
                                         </div>
                                         <div class="file-name">
                                             离婚材料
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        @endif
+
+                        @if($data->img->security_img)
+                            @foreach($data->img->security_img as $k=>$v)
+                                <div class="file-box">
+                                    <div class="file img-div-p">
+                                        <span class="corner"></span>
+
+                                        <div class="image">
+                                            <img alt="image" class="img-responsive  img-div-center" src="{{ $v }}" data-hash="security_img_{{ $k+1 }}">
+                                        </div>
+                                        <div class="file-name">
+                                            社保证明
                                         </div>
                                     </div>
                                 </div>

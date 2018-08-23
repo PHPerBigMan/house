@@ -188,13 +188,16 @@ class Buy extends Model
         // 获取这调数据的其他购房者信息图片
         $otherImg = Imgs::where('buyId',$buyId)->value('other_img');
 
-        foreach ($otherImg as $k=>$v){
-            if(isset($v['idCard'])){
-                if(!in_array($v['idCard'],$idCard)){
-                    $key[] = $k;
+        if($otherImg){
+            foreach ($otherImg as $k=>$v){
+                if(isset($v['idCard'])){
+                    if(!in_array($v['idCard'],$idCard)){
+                        $key[] = $k;
+                    }
                 }
             }
         }
+
 
         if($key){
             foreach ($key as $v){
@@ -297,24 +300,6 @@ class Buy extends Model
                 'accountBookmain','housing_situation','personal_credit','fund_freezing',
                 'other_housing_situation','divorce_img','security_img','other_img',"marry",'death'
             ];
-
-
-//            $return = Imgs::where('buyId',$buyId)->select($fillabe)->first();
-//            if($return){
-//                $status = Buy::where('phone',$data['phone'])->value('status');
-//                if(in_array($status,[0,1,2,3])){
-//                    $return->status = "审核中";
-//                }else if($status == 4){
-//                    $return->status = "审核不通过";
-//                    $error = Disagreement::where('buyId',$buyId)->select('key','reason')->get();
-//                    if($error->isNotEmpty()){
-//                        $return->error = $error;
-//                    }
-//                }else{
-//                    $return->status  = "审核通过";
-//                }
-//            }
-//            return $return;
         }
 
         if($data['type'] == 3){
@@ -333,10 +318,17 @@ class Buy extends Model
                 $error = Disagreement::where([
                     'buyId'=>$buyId,
                     'type'=>0
-                ])->select('key','reason')->get();
+                ])
+                    ->whereIn('key',[
+                        "idCardfront","idCardback","accountBook","accountBookmain",
+                        "accountBookpersonal","death","marry"
+                    ])
+                    ->select('key','reason')->get();
                 // 主购房人图片审核不通过
                 if($error->isNotEmpty()){
-                    $return->error = $error;
+                    $return->error = $error->toArray();
+                    $moreError = self::getArrayError($buyId,count($return->error));
+                    $return->error = array_merge($return->error,$moreError);
                 }
 
                 $othererror = Disagreement::where([
@@ -396,7 +388,11 @@ class Buy extends Model
         return $id;
     }
 
-
+    /**
+     * method: 用于登录时判断用户资料填写的状态
+     * author: hongwenyang
+     * param:
+     */
     public static function Info($phone){
         $Info = Buy::where('phone',$phone)->first();
         if(!$Info){
@@ -407,5 +403,97 @@ class Buy extends Model
             }
             return 200;
         }
+    }
+
+
+    /**
+     * method: 修改主购房人图片资料不通过时错误的提示信息数据格式
+     * author: hongwenyang
+     * param:
+     */
+    public static function getArrayError($buyId,$len){
+        $return = array();
+
+        // 个人征信
+        $personal_credit = Disagreement::where(['buyId'=>$buyId,'type'=>0])
+            ->where('key',"like","%personal_credit%")
+            ->select('key','reason')->get();
+
+        if($personal_credit->isNotEmpty()){
+            $imgCount = Imgs::where('buyId',$buyId)->value('personal_credit');
+            $personal_credit = self::makeArrayError("personal_credit",count($imgCount),$buyId);
+            $return[$len] = $personal_credit;
+            $len++;
+        }
+
+        // 杭州住房证明
+        $housing_situation = Disagreement::where(['buyId'=>$buyId,'type'=>0])
+            ->where('key',"like","%housing_situation%")
+            ->select('key','reason')->get();
+
+        if($housing_situation->isNotEmpty()){
+            $imgCount = Imgs::where('buyId',$buyId)->value('housing_situation');
+            $housing_situation = self::makeArrayError("housing_situation",count($imgCount),$buyId);
+            $return[$len] = $housing_situation;
+            $len++;
+        }
+
+        // 资产证明
+        $fund_freezing = Disagreement::where(['buyId'=>$buyId,'type'=>0])
+            ->where('key',"like","%fund_freezing%")
+            ->select('key','reason')->get();
+
+        if($fund_freezing->isNotEmpty()){
+            $imgCount = Imgs::where('buyId',$buyId)->value('fund_freezing');
+            $fund_freezing = self::makeArrayError("fund_freezing",count($imgCount),$buyId);
+            $return[$len] = $fund_freezing;
+            $len++;
+        }
+
+        // 离婚材料
+        $divorce_img = Disagreement::where(['buyId'=>$buyId,'type'=>0])
+            ->where('key',"like","%divorce_img%")
+            ->select('key','reason')->get();
+
+        if($divorce_img->isNotEmpty()){
+            $imgCount = Imgs::where('buyId',$buyId)->value('divorce_img');
+            $divorce_img = self::makeArrayError("divorce_img",count($imgCount),$buyId);
+            $return[$len] = $divorce_img;
+            $len++;
+        }
+
+        // 社保证明
+        $security_img = Disagreement::where(['buyId'=>$buyId,'type'=>0])
+            ->where('key',"like","%security_img%")
+            ->select('key','reason')->get();
+
+        if($security_img->isNotEmpty()){
+            $imgCount = Imgs::where('buyId',$buyId)->value('security_img');
+            $security_img = self::makeArrayError("security_img",count($imgCount),$buyId);
+            $return[$len] = $security_img;
+            $len++;
+        }
+
+        return $return;
+    }
+
+    /**
+     * method: 处理返回数据
+     * author: hongwenyang
+     * param:
+     */
+    public static function makeArrayError($title,$imgCount,$buyId){
+        $return['key'] = $title;
+        for ($i=0;$i<$imgCount;$i++){
+           $ifHave = Disagreement::where(['buyId'=>$buyId,'key'=>$title."_".($i+1)])->first();
+
+           if($ifHave){
+               $return['reason'][$i] = $ifHave->reason;
+           }else{
+               $return['reason'][$i] = "";
+           }
+        }
+
+        return $return;
     }
 }

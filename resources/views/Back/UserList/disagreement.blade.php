@@ -58,14 +58,23 @@
                                             死亡证明
                                             @elseif($v->key == 'marry')
                                             结婚证
-                                            @elseif($v->key == 'housing_situation')
-                                            杭州住房证明
-                                            @elseif($v->key == 'security_img')
-                                            社保证明
-                                            @elseif($v->key == 'personal_credit')
-                                            个人征信
-                                            @elseif($v->key == 'fund_freezing')
-                                            资产证明
+                                            @elseif(strpos($v->key,'situation'))
+                                            <?php $list = explode('_',$v->key);?>
+                                                杭州住房证明<?php echo $list[2]?>
+
+                                            @elseif(strpos($v->key,'urity'))
+                                            <?php $list = explode('_',$v->key);?>
+                                                社保证明<?php echo $list[2]?>
+
+                                            @elseif(strpos($v->key,'credit'))
+                                            <?php $list = explode('_',$v->key);?>
+                                                个人征信<?php echo $list[2]?>
+                                            @elseif(strpos($v->key,'freez'))
+                                            <?php $list = explode('_',$v->key);?>
+                                                资产证明<?php echo $list[2]?>
+                                            @elseif(strpos($v->key,'vorce'))
+                                            <?php $list = explode('_',$v->key);?>
+                                            离婚材料<?php echo $list[2]?>
                                             @elseif($v->type == 1)
                                            <?php
                                                 $name = explode('-',$v->key);

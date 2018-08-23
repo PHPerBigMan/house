@@ -270,7 +270,7 @@ class ApiController extends Controller
             $phone = Buy::where('md5',$phone)->value('phone');
 
             if(!$phone){
-                return response()->json(['code'=>403,'msg'=>'error check']);
+                return response()->json(['code'=>403,'msg'=>'登录失效,请重新登录']);
             }
             $status = Buy::where('phone',$phone)->get();
 
@@ -396,6 +396,32 @@ class ApiController extends Controller
             return response()->json(['code'=>200,'msg'=>'查询成功','result'=>$data->result,'name'=>$name]);
         }else{
             return response()->json(['code'=>403,'msg'=>'暂无结果']);
+        }
+    }
+
+
+    /**
+     * method: 获取审核通过之后图片的数据
+     * author: hongwenyang
+     * param:
+     */
+    public function getImg(Request $request){
+        $phone = $request->input('phone');
+        if($phone){
+            $phone = Buy::where('md5',$phone)->value('phone');
+            if(!$phone){
+                return response()->json(['code'=>403,'msg'=>'登录失效,请重新登录']);
+            }else{
+                $data = Buy::where('phone',$phone)->select('name','idCard','registration','status')->first();
+                if($data){
+                    if($data->status == 5){
+                        // 审核通过
+                        return response()->json(['code'=>200,'msg'=>"获取成功",'data'=>$data]);
+                    }
+                    return response()->json(['code'=>403,'msg'=>"审核暂未通过"]);
+                }
+                return response()->json(['code'=>403,'msg'=>"获取异常"]);
+            }
         }
     }
 }

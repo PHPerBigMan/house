@@ -30,4 +30,5 @@ Route::group(['namespace'=>'Api'],function(){
     Route::any('/idCard','ApiController@idCard');
     Route::any('/qiniuTest','ApiController@qiniuTest');
     Route::any('/result','ApiController@result');
+    Route::any('/getImg','ApiController@getImg');
 });
