@@ -154,8 +154,14 @@
                                                     <td>
                                                         @if($v->firstTrial == session('admin') || $v->finalTrial == session('admin'))
                                                             @if(in_array($v->status,[1,2,3]))
+                                                                @if($v->status == 2)
+                                                                    {{--初审通过--}}
+                                                                    @if($v->firstTrial != session('admin'))
+                                                                        <a href="/admin/buy/read/{{ $v->id }}/1/{{ $v->status }}" class="btn btn-white btn-sm"><i class="fa fa-pencil"></i> 审核 </a>
+                                                                        @endif
+                                                                    @endif
                                                             {{--<button onclick="showMore({{ $v->id }},'{{ $v->name }}',1,{{ $v->status }})" class="btn btn-white btn-sm"><i class="fa fa-pencil"></i> 审核 </button>--}}
-                                                            <a href="/admin/buy/read/{{ $v->id }}/1/{{ $v->status }}" class="btn btn-white btn-sm"><i class="fa fa-pencil"></i> 审核 </a>
+
                                                             @endif
                                                         @endif
                                                             {{--<button onclick="showMore({{ $v->id }},'{{ $v->name }}',2,{{ $v->status }})" class="btn btn-white btn-sm"><i class="fa fa-folder"></i> 查看 </button>--}}

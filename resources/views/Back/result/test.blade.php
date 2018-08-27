@@ -239,7 +239,7 @@
         </div>
         <div class="navbar-collapse collapse head-background " id="navbar">
             <?php
-            $admin = \App\Model\Admin::where('id',session('admin'))->value('account');
+            $admin = \App\Model\Admin::where('id',session('admin'))->value('user');
             ?>
             <ul class="navl navbar-nav head-ul " id="list-ul">
                 <li class=<?php if($title == 'house') echo "high-color"?>>
@@ -281,7 +281,7 @@
     <input type="hidden" id="certNumber">
     <input type="hidden" id="PhotoStr">
     <object id="CertCtl" type="application/cert-reader" width="0" height="0">
-        <p style="color:#FF0000;">控件不可用，可能未正确安装控件及驱动，或者控件未启用。</p>
+        <p style="color:#FF0000;text-align: center;margin-top: 20px;font-size: 20px">控件不可用，可能未正确安装控件及驱动，或者控件未启用。</p>
     </object>
 </div>
 

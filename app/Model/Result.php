@@ -8,6 +8,6 @@ class Result extends Model
 {
     protected $table = "result";
     protected $fillable = [
-        'registration','phone','result'
+        'registration','phone','result',"getHouse","name"
     ];
 }

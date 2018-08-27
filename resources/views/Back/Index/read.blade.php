@@ -250,7 +250,7 @@
                                         <img alt="image" class="img-responsive  img-div-center" src="{{ $v }}" data-hash="housing_situation_{{ $k+1 }}">
                                     </div>
                                     <div class="file-name">
-                                        杭州住房证明
+                                        杭州住房证明{{ $k+1 }}
                                     </div>
                                 </div>
                             </div>
@@ -264,7 +264,7 @@
                                         <img alt="image" class="img-responsive  img-div-center" src="{{ $v }}" data-hash="personal_credit_{{ $k+1 }}">
                                     </div>
                                     <div class="file-name">
-                                        个人征信证明
+                                        个人征信证明{{ $k+1 }}
                                     </div>
                                 </div>
                             </div>
@@ -278,7 +278,7 @@
                                         <img alt="image" class="img-responsive  img-div-center" src="{{ $v }}" data-hash="fund_freezing_{{ $k+1 }}">
                                     </div>
                                     <div class="file-name">
-                                        资产证明
+                                        资产证明{{ $k+1 }}
                                     </div>
                                 </div>
                             </div>
@@ -293,7 +293,7 @@
                                             <img alt="image" class="img-responsive  img-div-center" src="{{ $v }}" data-hash="divorce_img_{{ $k+1 }}">
                                         </div>
                                         <div class="file-name">
-                                            离婚材料
+                                            离婚材料{{ $k+1 }}
                                         </div>
                                     </div>
                                 </div>
@@ -310,7 +310,7 @@
                                             <img alt="image" class="img-responsive  img-div-center" src="{{ $v }}" data-hash="security_img_{{ $k+1 }}">
                                         </div>
                                         <div class="file-name">
-                                            社保证明
+                                            社保证明{{ $k+1 }}
                                         </div>
                                     </div>
                                 </div>

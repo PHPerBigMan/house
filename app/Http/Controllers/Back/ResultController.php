@@ -19,13 +19,14 @@ class ResultController extends Controller
             foreach ($data as $k=>$v){
                 $isHave = Buy::where('phone',$v[0])->first();
                 if($isHave){
-                    $create['phone'] = $v[0];
+                    $create['phone']        = $v[0];
                     $create['registration'] = $isHave->registration;
-                    $create['result']   = $v[1] == "已中" ? 1 : 0;
+                    $create['getHouse']     = $v[1];
+                    $create['name']         = $v[2];
                     if(Result::where('phone',$v[0])->value('id')){
-                        Result::where('phone',$v[0])->update([
-                            'result'=>$create['result']
-                        ]);
+//                        Result::where('phone',$v[0])->update([
+//                            'result'=>$create['result']
+//                        ]);
                     }else{
                         Result::create($create);
                     }
