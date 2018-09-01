@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="hotcss" content="initial-dpr=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>线上登记系统</title>
+		<link rel="bookmark" href="/favicon.ico" type="image/x-icon"　/>
+		<link rel="stylesheet" href="css/weui.min.css">
+		<link rel="stylesheet" href="css/jquery-weui.css">
+		<link rel="stylesheet" href="css/demos.css">
+		<link rel="stylesheet" type="text/css" href="css/app1.css?v=1" />
+        <script src="js/hotcss.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-2.1.4.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/com.js?v=1" type="text/javascript" charset="utf-8"></script>
+  </head>
+  <body class="page1" ontouchstart="">
+  	<div class="backzoo">
+	 <img  class="backimg" src="img/back.png"/>
+     <span class="backfont">返回</span>
+	</div>
+    <p class="headerp">线上登记系统</p>
+		<div class="navbox">
+			<img src="img/nav1.png"/>
+		</div>
+		<div class="fontleft">主购房人信息</div>
+		<div class="boxfff">
+			<div class="linebox borderbottomline selectat mustselect mustline1 " at="0" v="请选择">
+				户籍<label class="lineboxright alink" for="homepage">
+					<span class="homepage mustspan">请选择</span> <img class="imggo alink" src="img/go.png"/>
+				    </label>
+			</div>
+			<div class="linebox borderbottomline selectat mustselect mustline2" at="0" v="请选择">
+				婚姻情况
+				<label class="lineboxright alink" for="marriage">
+					<span class="marriage mustspan">请选择</span> <img class="imggo alink" src="img/go.png"/>
+				</label>
+			</div>
+			<div class="linebox borderbottomline marriagetimebox mustline3" at="0" V="请选择">
+				离异时间段
+				<label class="lineboxright alink" for="marriagetime">
+					<span class="marriagetime mustspan">请选择</span> <img class="imggo alink" src="img/go.png"/>
+				</label>
+			</div>
+			<div class="linebox borderbottomline  mustselect mustline4" at="0" V="请选择">
+				在杭州（12区）拥有住房
+				<label class="lineboxright alink" for="hashouse">
+					<span class="hashouse mustspan ">请选择</span> <img class="imggo alink" src="img/go.png"/>
+				</label>
+			</div>
+			
+			
+			<div class="linebox  borderbottomline linanbox mustline6" at="0" v="请选择">
+				<span class="lineboxleft">在临安、桐庐、建德、淳安拥有住房</span>
+				<label class="lineboxright alink" for="linanbox">
+					<span class="spanlinanbox mustspan">请选择</span> <img class="imggo alink" src="img/go.png"/>
+				</label>
+			</div>
+			
+			<!--<div class="linebox  borderbottomline  select1 mustline5" at="0" v="请选择">
+				<span class="lineboxleft">自购房之日起前3年内在杭州市连续缴纳2年及以上社保或者个税（补缴不算）</span>
+				<label class="lineboxright alink" for="socialsecurity">
+					<span class="socialsecurity mustspan">请选择</span> <img class="imggo alink" src="img/go.png"/>
+				</label>
+			</div>-->
+			
+			
+		</div>
+       <div class="btn  top122">
+       	下一步
+       </div>
+
+    </div>
+ <input class="weui-input" id="homepage" type="text" value="" readonly="">
+ <input class="weui-input" id="marriage" type="text" value="" readonly="">
+ <input class="weui-input" id="hashouse" type="text" value="" readonly="">
+ <input class="weui-input" id="socialsecurity" type="text" value="" readonly="">
+ <input class="weui-input" id="linanbox" type="text" value="" readonly=""> 
+ <input class="weui-input" id="marriagetime" type="text" value="" readonly="">  
+<script src="js/fastclick.js"></script>
+<script>
+  $(function() {
+    FastClick.attach(document.body);
+  });
+</script>
+<script src="js/jquery-weui.js"></script>
+<script src="js/app1.js?v=4" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>
+<script type="text/javascript">
+	$(".backzoo").click(function(){
+		window.location.href="pre3.html";
+	})
+</script>

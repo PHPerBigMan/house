@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>线上登记系统</title>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<link rel="stylesheet" href="css/weui.min.css">
+	<link rel="stylesheet" href="css/jquery-weui.css">
+	<link rel="stylesheet" href="css/demos.css">
+	<script src="js/jquery-2.1.4.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/pre.js?v=6" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body class="pre1" ontouchstart="">
+  <div href="pre.html" class="backzoo">
+	   <img  class="backimg" src="img/back.png"/>
+     <span class="backfont">返回</span>
+	</div>
+
+    <header class="demos-header padding20">
+      <h3 class="demostitle">购房意向登记须知</h3>
+    </header>
+ <div class="content ">
+ 	
+ 	
+ <!--<p class="normalbox">
+	1、线上登记时间： 2018年 X月X日上午 9点起到 2018 年X月X日17点整。 （在以上登记时间内已提交资料审核，但因资料不符或缺失等原因未通过审核者，我司允许该部分客户在2018年5月X日17点前重新提交资料审核。）
+</p>
+<p class="normalbox">
+	2、每位购房意向登记人仅可线上登记1次，不可重复报名。
+</p>
+<p class="normalbox">
+	3、线上意向登记审核通过后，您将在系统内收到《意向登记审核通过回执》，请注意查收并关注登记编号。其中登记编号为购房意向登记人参与摇号的身份识别号,不作为选房顺序号。
+</p>
+<p class="normalbox">
+	4、个人征信报告须符合中国人民银行的征信系统且符合银行的贷款政策要求。
+</p>
+<p class="p">
+	5、资金冻结证明：购房意向家庭需按照开发商指定的中国银行网点进行个人账户名下资金冻结，并上传相关证明的照片件（无房家庭冻结资金为80万，非无房家庭冻结资金为160万）。
+</p>
+<p class="normalbox">
+	6、资金冻结期限：摇号产生的顺序号为451号前的客户，如成功认购房源的，该笔冻结款项将作为房屋定金和首付款，不足款项签约当天补足。其他顺序号为450号以后的客户，冻结期从客户线上登记成功当天起，到公证摇号结束后两个工作日内，开发商将该笔款项解冻，客户可自行将资金退回。
+</p>
+
+<p class="normalbox">
+	
+</p>-->
+</div>
+    <div class="weui-cells weui-cells_checkbox noborder">
+      <label class="weui-cell weui-check__label noborder" for="s11">
+        <div class="weui-cell__hd">
+          <input type="checkbox" class="weui-check" name="checkbox1" id="s11" >
+          <i class="weui-icon-checked"></i>
+        </div>
+        <div class="weui-cell__bd">
+          <p>我同意 《登记须知》</p>
+        </div>
+      </label>
+    </div>
+<div class="weui-btn-area weuibtnarea">
+  <a class="weui-btn weui-btn_primary  weui-btn_disabled  awidthbox" href="javascript:" id="showTooltips">下一步</a>
+</div>
+<script src="js/jquery-2.1.4.min.js"></script>
+<script src="js/jquery-weui.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#s11").click(function(){
+			var s11checked=$("#s11").prop("checked");
+			console.log(s11checked);
+			if(s11checked){
+				$(".awidthbox").removeClass("weui-btn_disabled");
+			}else{
+				$(".awidthbox").addClass("weui-btn_disabled");
+			}
+		})
+		
+		$("#showTooltips").click(function(){
+			var s11checked=$("#s11").prop("checked");
+			if(s11checked){
+				var v=Math.random();
+				window.location.replace("pre3.html?v="+v);
+			}
+		})
+		
+		
+	$(".backzoo").click(function(){
+		$.confirm({
+		  title: '提示',
+		  text: '您确定返回首页吗？返回后将重新登录',
+		  onOK: function () {
+		  	var v=Math.random();
+		    window.location.href="pre.html?v="+v;
+		  },
+		  onCancel: function () {
+		  }
+		});
+	})
+		
+	})
+	
+</script>
+</body>
+</html>

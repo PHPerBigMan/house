@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>线上登记系统</title>
+		<meta name="hotcss" content="initial-dpr=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/weui.min.css">
+		<link rel="stylesheet" href="css/jquery-weui.css">
+		<link rel="stylesheet" href="css/demos.css">
+		<link rel="stylesheet" type="text/css" href="css/app.css?c=32432" />
+       <script src="js/hotcss.js" type="text/javascript" charset="utf-8"></script>
+	   <script src="js/jquery-2.1.4.min.js" type="text/javascript" charset="utf-8"></script>
+	   <!--<script src="js/com.js?v=1" type="text/javascript" charset="utf-8"></script>-->
+	   <!--<script src="https://cdn.bootcss.com/moment.js/2.22.1/locale/af.js"></script>-->
+	   <script src="js/index220180830.js?v=33" type="text/javascript" charset="utf-8"></script>
+  </head>
+  <body class="page2" ontouchstart="">
+  	<div class="backzoo">
+	 <img  class="backimg" src="img/back.png"/>
+     <span class="backfont">返回</span>
+	</div>
+  	<div class="zzc">
+  		<div class="imgback">
+	     <span class="backfont">返回</span>
+		</div>
+  		<img class="zzcclose" src="img/closenum.png"/>
+  		<img class="example1" src="img/example1.jpg"/>
+  		<img class="example2"  src="img/example2.jpg"/>
+  	</div>
+    <p class="headerp">线上登记系统</p>
+		<div class="navbox">
+			<img src="img/nav2.png"/>
+		</div>
+		<div class="fontleft">主购房人信息</div>
+		<div class="boxfff">
+			<div class="linebox borderbottomline buyer1  selectat" at="0">
+				姓名<input class="lineboxinput" value="" id="buyer1" type="text" placeholder="请输入姓名">
+			</div>
+			<div class="linebox borderbottomline selectat buyer2" at="0">
+				证件类型
+				 <input class="weui-input" id="buyer2" value="" type="text" readonly="">  <!--证件类型-->
+				<label class="lineboxright alink" for="buyer2">
+					<span class="mustspan">请选择</span> <img class="imggo alink" src="img/go.png"/>
+				</label>
+			</div>
+			<div class="linebox borderbottomline  buyer3 selectat" at="0">
+				证件号码
+				<input class="lineboxinput"  id="buyer3" type="text" placeholder="请输入证件号码">
+			</div>
+			<div class="linebox borderbottomline selectat buyer4" at="0">
+				无房家庭
+				<input class="weui-input" id="buyer4"  value="" type="text"  readonly=""><!--无房家庭-->
+				<label class="lineboxright alink" for="buyer4">
+					<span class="mustspan">请选择</span> <img class="imggo alink" src="img/go.png"/>
+				</label>
+				<div class="lineboxbottom">
+					无房家庭是指在杭州市限购范围内无自有住房的家庭，不含未婚、2018年4月4日后离异单身以及2018年4月4日后因自有住房交易产生的“无房家庭”。
+				</div>
+			</div>
+			<div class="linebox  borderbottomline nohzpeople selectat" at="0">
+				 <input class="weui-input" id="buyer5" type="text" value="" readonly=""><!--非杭州市（含四县市）住房-->
+				<span class="lineboxleft">非杭州市（含四县市）住房</span>
+				<label class="lineboxright alink buyer5" for="buyer5">
+					<span class="mustspan">请选择</span> <img class="imggo alink" src="img/go.png"/>
+				</label>
+			</div>
+			<div class="linebox  borderbottomline buyer6  selectat" at="0">
+				 <input class="weui-input" id="buyer6" type="text" value="" readonly=""><!--全国住房贷款记录-->
+				<span class="lineboxleft">全国住房贷款记录</span>
+				<label class="lineboxright alink buyer6" for="buyer6">
+					<span class="mustspan">请选择</span> <img class="imggo alink" src="img/go.png"/>
+				</label>
+			</div>
+			
+			
+			
+			
+			<div class="linebox borderbottomline buyer7  selectat" at="0">
+				 <input class="weui-input" id="buyer7" type="text" value="" readonly=""> <!--付款方式-->
+				<span class="lineboxleft">付款方式</span>
+				<label class="lineboxright alink buyer7" for="buyer7">
+					<span class="mustspan">请选择</span> <img class="imggo alink" src="img/go.png"/>
+				</label>
+			</div>
+			<div class="linebox  borderbottomline buyer8 selectat" at="0">
+                <input class="weui-input" id="buyer8" type="text" value="" readonly=""> <!--首付比例-->
+				<span class="lineboxleft">首付比例</span>
+				<label class="lineboxright alink buyer8" for="buyer8">
+					<span class="mustspan">请选择</span> <img class="imggo alink" src="img/go.png"/>
+				</label>
+				<div class="lineboxbottom">
+					最终首付比例根据开发商指定银行审核为准
+				</div>
+			</div>
+			<div class="linebox borderbottomline   selectat" at="0">
+				
+				<!--<input class="lineboxinput"  id="buyer9" type="text" placeholder="请输入销售顾问姓名">-->
+				<span class="lineboxleft">销售顾问</span> <input class="weui-input" id="buyer9" type="text" value="" readonly="">  <!--年龄段-->
+				<label class="lineboxright alink buyer9" for="buyer9">
+					<span class="mustspan">请选择</span> <img class="imggo alink" src="img/go.png"/>
+				</label>
+			</div>
+			
+			<div class="linebox  borderbottomline  selectat" at="0">
+				<span class="lineboxleft">年龄段</span> <input class="weui-input" id="buyer10" type="text" value="" readonly="">  <!--年龄段-->
+				<label class="lineboxright alink buyer10" for="buyer10">
+					<span class="mustspan">请选择</span> <img class="imggo alink" src="img/go.png"/>
+				</label>
+			</div>
+			
+			<div class="linebox  borderbottomline  selectat" at="0">
+				<span class="lineboxleft">需求面积</span> <input class="weui-input" id="buyer11" type="text" value="" readonly="">  <!--需求面积-->	
+				<label class="lineboxright alink buyer11" for="buyer11">
+					<span class="mustspan">请选择</span> <img class="imggo alink" src="img/go.png"/>
+				</label>
+			</div>
+			<div class="linebox    selectat" at="0">
+				<span class="lineboxleft">是否购买车位</span> <input class="weui-input" id="buyer12" type="text" value="" readonly="">  <!--是否购买车位-->	
+				<label class="lineboxright alink buyer12" for="buyer12">
+					<span class="mustspan">请选择</span> <img class="imggo alink" src="img/go.png"/>
+				</label>
+			</div>
+		</div>
+		<div class="fontleft">关联人信息</div>
+		<div class="boxfff">
+			
+			<div class="linebox addbox marriage addzoomarriageshow" >
+				<img class="add1icon" src="img/add1.png"/> 添加未成年子女信息
+			</div>
+			
+			<div class="addzoo marriage addzoomarriage">
+					<div class="yearold18">
+						<p class="yearold18head">未成年子女信息</p>
+					</div>
+					
+					
+					<div class="addzoochild marginbottom">
+						<div class="addzoochildhead">未成年子女<span class="addzoochildheadspan">1</span>
+							<img class="reduceicon isfirst" src="img/reduce.png"/>
+						</div>
+						<div class="addzoochildbox">
+							<div class="addzoochildboxleft">子女姓名</div>
+							<div class="addzoochildboxright">
+								<input type="text" class="childname childname1" name="" id="" value="" placeholder="请输入子女姓名" />
+							</div>
+						</div>
+						<div class="addzoochildbox borderbottomnone">
+							<div class="addzoochildboxleft">
+								身份证号
+							</div>
+							<div class="addzoochildboxright">
+								<input type="text" v="1" class="childcard childcard1" name="" id="" value="" placeholder="请输入证件号码" />
+							</div>
+						</div>
+					</div>
+					<div class="jsadd">
+						
+					</div>
+					<div class="addzooaddmore marriagemore">
+						<img class="add2icon " src="img/add1.png"/>继续添加
+					</div>
+				</div>
+			
+			
+			
+			
+			
+			<div class="linebox addbox bordertop1 buyinfobtn" >
+				<img class="add1icon" src="img/add1.png"/> 添加其他购房人信息
+			</div>
+			
+			<div class="addzoo buyinfozoo">
+					<div class="yearold18">
+						<p class="yearold18head">其他购房人信息</p>
+					</div>
+					<div class="addzoochild buyinfozoo1">
+						<div class="addzoochildhead">
+							其他购房人<span class="addzoochildheadspan">1</span>
+							<img class="reduceicon" src="img/reduce.png"/>
+						</div>
+						<div class="addzoochildbox">
+							<div class="addzoochildboxleft">
+								姓名
+							</div>
+							<div class="addzoochildboxright">
+								<input type="text" name="" class="buyothersname buyothersname1" id="" value="" placeholder="请输入姓名" />
+							</div>
+						</div>
+						<div class="addzoochildbox">
+							<div class="addzoochildboxleft">
+								证件类型
+							</div>
+							 <input class="weui-input" id="addid1" type="text" value="身份证" readonly="">
+							<div class="addzoochildboxright">
+								<label class="lineboxright alinkaddid alink addid1" for="addid1">
+									<span class="color333 mustspan">身份证</span> <img class="imggo alink" src="img/go.png"/>
+								</label>
+							</div>
+						</div>
+						
+						<div class="addzoochildbox">
+							<div class="addzoochildboxleft">
+								证件号码
+							</div>
+							<div class="addzoochildboxright">
+								<input class="buyothersnum buyothersnum1" v="1" type="text" name="" id="" value="" placeholder="请输入证件号码" />
+							</div>
+						</div>
+						
+						<div class="addzoochildbox border-bottom-none">
+							<div class="addzoochildboxleft">
+								手机号码
+							</div>
+							<div class="addzoochildboxright">
+								<input class="buyothersphone buyothersphone1" type="text" name="" id="" value="" placeholder="请输入手机号码" />
+							</div>
+						</div>
+					</div>
+					
+					
+					<div class="jsbuyothers">
+						  <!--<div class="addzoochild marginbottom">
+							<div class="addzoochildhead">其他购房人<span class="addzoochildheadspan">2</span>
+								<img class="reduceicon" src="img/reduce.png"/>
+							</div>
+							<div class="addzoochildbox">
+								<div class="addzoochildboxleft">姓名</div>
+								<div class="addzoochildboxright">
+									<input type="text" name="" id="" value="" placeholder="请输入姓名" />
+								</div>
+							</div>
+							<div class="addzoochildbox">
+								<div class="addzoochildboxleft">
+									证件类型
+								</div>
+								<div class="addzoochildboxright">
+									<label class="lineboxright alink" for="">
+										<span class="color333">身份证</span> <img class="imggo alink" src="img/go.png"/>
+									</label>
+								</div>
+							</div>
+							
+							<div class="addzoochildbox">
+								<div class="addzoochildboxleft">
+									证件号码
+								</div>
+								<div class="addzoochildboxright">
+									<input type="text" name="" id="" value="" placeholder="请输入证件号码" />
+								</div>
+							</div>
+							
+							<div class="addzoochildbox border-bottom-none">
+								<div class="addzoochildboxleft">
+									手机号码
+								</div>
+								<div class="addzoochildboxright">
+									<input type="text" name="" id="" value="" placeholder="请输入手机号码" />
+								</div>
+							</div>
+						</div>-->
+					</div>
+					
+					
+					
+					
+					
+					<div class="addzooaddmore buyothermore">
+						<img class="add2icon " src="img/add1.png"/>继续添加
+					</div>
+				</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		</div>
+		
+		
+		
+		
+<div class="cdbh">
+		<div class="fontleft">住房情况查询证明（临安60天内有效）</div>
+		<div class="bigimgbtn">点击查看查档编号示例</div>
+		<div class="boxfff bhbigzoo">
+			<div class="danumber">
+				<div class="boxfff1left">查档编号1</div>
+				<div class="boxfff1right">
+					<input type="text" name="" class="danumberinput" value="" placeholder="请输入编号" />
+				</div>
+			</div>
+			<div class="bhzoo"></div>
+			<!--<div class="danumber">
+				<div class="boxfff1left">查档编号1</div>
+				<div class="boxfff1right">
+					<div class="removedanum"><img src="img/reduce.png"/></div>
+					<input type="text" name="" class="danumberinput" value="" placeholder="请输入编号" />
+				</div>
+			</div>-->
+			<div class="addzooaddmoreda">
+				<img class="add2icon " src="img/add1.png"/>添加编号
+			</div>
+		</div>
+      <div class="formdesc">住房情况查询证明必须包含主购房者及关联人。</div>
+	  <div class="formdesc1">点击了解<span class="howtoget">如何获取。</span></div>
+</div>	
+      <div class="btn  top122 marbottom100 btnok">
+       	下一步
+       </div>
+      
+    </div>
+
+
+
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/fastclick.js"></script>
+<script>
+  $(function() {
+    FastClick.attach(document.body);
+  });
+</script>
+<script src="js/jquery-weui.js"></script>
+<script src="js/app.js?v=1" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>
+<script type="text/javascript">
+	$(".backzoo").click(function(){
+		var v=Math.random()
+		window.location.href="index.html?v="+v;
+	})
+</script>

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>线上登记系统</title>
+		<meta name="hotcss" content="initial-dpr=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/weui.min.css">
+		<link rel="stylesheet" href="css/jquery-weui.css">
+		<link rel="stylesheet" href="css/demos.css">
+		<link rel="stylesheet" type="text/css" href="css/app.css?v=3" />
+       <script src="js/hotcss.js" type="text/javascript" charset="utf-8"></script>
+	   <script src="js/jquery-2.1.4.min.js" type="text/javascript" charset="utf-8"></script>
+	   <script src="js/jquery-weui.js"></script>
+	   <script src="js/com.js?v=2" type="text/javascript" charset="utf-8"></script>
+	   <script src="dist/exif.js" type="text/javascript" charset="utf-8"></script>
+	   <script src="js/index320180830.js" type="text/javascript" charset="utf-8"></script>
+  </head>
+
+  <body class="page3" ontouchstart="">
+  	<div class="backzoo">
+	 <img  class="backimg" src="img/back.png"/>
+     <span class="backfont">返回</span>
+	</div>
+  	<!--<input type="file"  accept="image/*" id="cameraInput" name="cameraInput"/>
+  	<input type="file" name="imgs" class="hideinput"    accept="image/*"  />
+  	<input type="file" style="visibility: hidden"  accept="image/*" name="" value="" >
+  	<input type="file"  name="" class="hideinput"   accept="image/*"  />
+  	<input type="file" id="buyerface" class="inuputfile" accept="image/*" onchange="javascript:setImagePreview('buyerface','buyerfaceimg');" value="">-->
+  	<div class="zzc">
+  		<div class="imgback">
+	     <span class="backfont">返回</span>
+		</div>
+		<div class="zzckong"></div>
+  		<img class="zzcclose" src="img/closenum.png"/>
+  		<img class="example1" src="img/31.jpg"/>
+  		<img class="example2"  src="img/321.jpg"/>
+  		<img class="example2"  src="img/322.jpg"/>
+  		<img class="example3"  src="img/cunkuan.jpg"/>
+  		<img class="example3"  src="img/cunkuan2.jpg"/>
+  		<img class="examplelinan" src="img/lianan.jpg"/>
+  	</div>
+        <p class="headerp">线上登记系统</p>
+		<div class="navbox">
+			<img src="img/nav3.png"/>
+		</div>
+		<div class="fontleft">主购房人材料</div>
+		<div class="boxfff overflowhidden buyerbox">
+			<div class="page3-header">
+				<span class="username"></span>身份证/军官证/护照<span class="page3-header-tips">(需上传清晰、完整、工整的照片)</span>
+			</div>
+			<div class="imgfilebox">
+				
+				<div class="imgfileboxleft inputcon ">
+					<img class="imgfileboxcancel" src="img/closenum.png"/>
+					<label for="buyerface" class="">
+						<img id="buyerfaceimg" class="show_img buyimg1" alt="img/zhengmian.png" src="img/zhengmian.png"/>
+					</label>
+					<input type="file"    id="buyerface" class="inuputfile"  accept="image/*" onchange="javascript:setImagePreview('buyerface','buyerfaceimg');" value="" />
+				</div>
+				<div class="imgfileboxright inputcon">
+					<img class="imgfileboxcancel" src="img/closenum.png"/>
+					<label for="buyerback">
+						<img id="buyerbackimg"  class="show_img buyimg2"  alt="img/fanmian.png"  src="img/fanmian.png"/>
+					</label>
+					<input type="file"     id="buyerback" class="inuputfile" onchange="javascript:setImagePreview('buyerback','buyerbackimg');" accept="image/*" value="" />
+				</div>
+			</div>
+			<div class="clearboth"></div>
+			<div class="page3-header padding30">
+				<span class="username"></span>户口本首页<span class="page3-header-tips">(需上传清晰、完整、工整的照片)</span>
+			</div>
+			<div class="imgfilecontair  inputcon">
+				<img class="imgfileboxcancel" src="img/closenum.png"/>
+					<label for="imgfile3"  class="">
+						<img id="imgfile3img" class="show_img buyimg3" alt="img/addimgicon.png" src="img/addimgicon.png"/>
+					</label>
+					<input type="file"     id="imgfile3" class="inuputfile" accept="image/*" onchange="javascript:setImagePreview('imgfile3','imgfile3img');" value="" />
+			</div>
+			<div class="page3-header padding30">
+				<span class="username"></span>户口本个人页<span class="page3-header-tips">(需上传清晰、完整、工整的照片)</span>
+			</div>
+			<div class="imgfilecontair inputcon">
+				    <img class="imgfileboxcancel" src="img/closenum.png"/>
+					<label for="imgfile4"  class="">
+						<img id="imgfile4img" class="show_img buyimg4" alt="img/addimgicon.png"  src="img/addimgicon.png"/>
+					</label>
+					<input type="file"     id="imgfile4" class="inuputfile" accept="image/*" onchange="javascript:setImagePreview('imgfile4','imgfile4img');" value="" />
+			</div>
+			
+			<div class="page3-header padding30">
+				<span class="username"></span>户口本户主页<span class="page3-header-tips">(需上传清晰、完整、工整的照片)</span>
+			</div>
+			<div class="imgfilecontair inputcon">
+				    <img class="imgfileboxcancel" src="img/closenum.png"/>
+					<label for="imgfile5"  class="">
+						<img id="imgfile5img" class="show_img buyimg5" alt="img/addimgicon.png"  src="img/addimgicon.png"/>
+					</label>
+					<input type="file"     id="imgfile5" class="inuputfile" accept="image/*" onchange="javascript:setImagePreview('imgfile5','imgfile5img');" value="" />
+			</div>
+			
+		<div class="boxmarry">
+			<div class="page3-header padding30">
+				结婚证明
+			</div>
+			<div class="imgfilecontair inputcon">
+				    <img class="imgfileboxcancel" src="img/closenum.png"/>
+					<label for="imgfilemarry"  class="">
+						<img id="imgfilemarryimg" class="show_img" alt="img/addimgicon.png"  src="img/addimgicon.png"/>
+					</label>
+					<input type="file"     id="imgfilemarry" class="inuputfile" accept="image/*" onchange="javascript:setImagePreview('imgfilemarry','imgfilemarryimg');" value="" />
+			</div>
+		</div>
+		<div class="diebox">
+			<div class="page3-header padding30">
+				死亡证明
+			</div>
+			<div class="imgfilecontair inputcon">
+				    <img class="imgfileboxcancel" src="img/closenum.png"/>
+					<label for="imgfiledie"  class="">
+						<img id="imgfiledieimg" class="show_img"  alt="img/addimgicon.png"  src="img/addimgicon.png"/>
+					</label>
+					<input type="file"     id="imgfiledie" class="inuputfile" accept="image/*" onchange="javascript:setImagePreview('imgfiledie','imgfiledieimg');" value="" />
+			</div>
+		</div>
+		
+		
+		<div class="lihunbox">
+			<div class="page3-header padding30">
+				离婚证明<span class="page3-header-tips">(请同时上传离婚证和离婚协议书，或者法院判决书)</span>
+			</div>
+			<div class="imglist" v="lihun">
+				<div class="imgfilecontair inputcon">
+					    <img class="imgfileboxcancel inlistimg" src="img/closenum.png"/>
+						<label for="imgfiledivorce"  class="">
+							<img id="imgfiledivorceimg" class="show_img inputconkong"  alt="img/addimgicon.png"  src="img/addimgicon.png"/>
+						</label>
+						<input type="file"     id="imgfiledivorce" class="inuputfile" accept="image/*" onchange="javascript:setImagePreview('imgfiledivorce','imgfiledivorceimg','list','lihun');" value="" />
+				</div>
+			</div>
+			
+		
+			
+			
+			
+		</div>
+		
+		
+			<div class="height40div">
+				
+			</div>
+		</div>
+		
+		
+<div class="buyothers">
+		<div class="fontleft">其他购房者材料</div>
+		<div class="boxfff overflowhidden buyotherszoo">
+			<!--<div class="page3-header">
+				<span class="username"></span>身份证/军官证/护照<span class="page3-header-tips">(需上传清晰、完整、工整的照片)</span>
+			</div>
+			<div class="imgfilebox">
+				<div class="imgfileboxleft inputcon ">
+					<img class="imgfileboxcancel" src="img/closenum.png"/>
+					<label for="buyerface" class="">
+						<img id="buyerfaceimg" class="show_img" alt="img/zhengmian.png" src="img/zhengmian.png"/>
+					</label>
+					<input type="file"     id="buyerface" class="inuputfile" accept="image/*" onchange="javascript:setImagePreview('buyerface','buyerfaceimg');" value="" />
+				</div>
+				<div class="imgfileboxright inputcon">
+					<img class="imgfileboxcancel" src="img/closenum.png"/>
+					<label for="buyerback">
+						<img id="buyerbackimg"  class="show_img"  alt="img/fanmian.png"  src="img/fanmian.png"/>
+					</label>
+					<input type="file"     id="buyerback" class="inuputfile" onchange="javascript:setImagePreview('buyerback','buyerbackimg');" accept="image/*" value="" />
+				</div>
+			</div>
+			<div class="clearboth"></div>
+			<div class="page3-header padding30">
+				<span class="username"></span>户口本首页<span class="page3-header-tips">(需上传清晰、完整、工整的照片)</span>
+			</div>
+			<div class="imgfilecontair  inputcon">
+				<img class="imgfileboxcancel" src="img/closenum.png"/>
+					<label for="imgfile3"  class="">
+						<img id="imgfile3img" class="show_img"  alt="img/addimgicon.png"  src="img/addimgicon.png"/>
+					</label>
+					<input type="file"     id="imgfile3" class="inuputfile" accept="image/*" onchange="javascript:setImagePreview('imgfile3','imgfile3img');" value="" />
+			</div>
+			<div class="page3-header padding30">
+				<span class="username"></span>户口本个人页<span class="page3-header-tips">(需上传清晰、完整、工整的照片)</span>
+			</div>
+			<div class="imgfilecontair inputcon">
+				    <img class="imgfileboxcancel" src="img/closenum.png"/>
+					<label for="imgfile4"  class="">
+						<img id="imgfile4img" class="show_img"  alt="img/addimgicon.png"  src="img/addimgicon.png"/>
+					</label>
+					<input type="file"     id="imgfile4" class="inuputfile" accept="image/*" onchange="javascript:setImagePreview('imgfile4','imgfile4img');" value="" />
+			</div>
+			
+			<div class="page3-header padding30">
+				<span class="username"></span>户口本户主页<span class="page3-header-tips">(需上传清晰、完整、工整的照片)</span>
+			</div>
+			<div class="imgfilecontair inputcon">
+				    <img class="imgfileboxcancel" src="img/closenum.png"/>
+					<label for="imgfile5"  class="">
+						<img id="imgfile5img" class="show_img"  alt="img/addimgicon.png" src="img/addimgicon.png"/>
+					</label>
+					<input type="file"     id="imgfile5" class="inuputfile" accept="image/*" onchange="javascript:setImagePreview('imgfile5','imgfile5img');" value="" />
+			</div>-->
+			<div class="height40div"></div>
+		</div>
+</div>		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<div class="fontleft">其他审核材料</div>
+		<div class="boxfff overflowhidden lastinfo">
+			
+		<div class="hzhousebox">
+			<div class="page3-header padding30">
+				杭州住房情况查询证明<span class="page3-header-tips">(必须包括主购房人、未成年子女及其他购房人查询信息，临安60天内有效)</span>
+			</div>
+			<div class="imglist" v="w">
+				<div class="imgfilecontair inputcon">
+				    <img class="imgfileboxcancel inlistimg" src="img/closenum.png"/>
+					<label for="imgfiles1sw1"  class="">
+						<img id="imgfilesimg1sw1" class="show_img inputconkong"  alt="img/addimgicon.png"  src="img/addimgicon.png"/>
+					</label>
+					<input type="file"     id="imgfiles1sw1" class="inuputfile" accept="image/*" onchange="javascript:setImagePreview('imgfiles1sw1','imgfilesimg1sw1','list','w');" value="" />
+			    </div>
+			</div>
+			<div class="bigimgshow padding20" v="1">查看示例</div>
+		</div>	
+			
+			<!--<div class="linan linanbox">
+				<div class="page3-header padding30">
+				临安、桐庐、建德、淳安住房情况查询证明<span class="page3-header-tips">(必须包括主购房人、未成年子女及其他购房人查询信息，20天内有效)</span>
+				</div>
+				<div class="imglist" v="linan">
+					<div class="imgfilecontair inputcon">
+					    <img class="imgfileboxcancel inlistimg" src="img/closenum.png"/>
+						<label for="imgfiles2"  class="">
+							<img id="imgfilesimg2" class="show_img inputconkong" alt="img/addimgicon.png"  src="img/addimgicon.png"/>
+						</label>
+						<input type="file"     id="imgfiles2" class="inuputfile" accept="image/*" onchange="javascript:setImagePreview('imgfiles2','imgfilesimg2','list','linan');" value="" />
+				    </div>
+				</div>
+				<div class="bigimgshow padding20" v="linan">查看示例</div>
+			</div>-->
+			
+			
+		<div class="trustpeople">
+				<div class="page3-header padding30">
+					个人征信证明<span class="page3-header-tips">(必须包括主购房人及其他购房人查询信息，6个月内有效)</span>
+				</div>
+				<div class="imglist" v="peopel">
+					<div class="imgfilecontair inputcon">
+					    <img class="imgfileboxcancel inlistimg" src="img/closenum.png"/>
+						<label for="imgfiles1speopel1"  class="">
+							<img id="imgfilesimg1speopel1" class="show_img inputconkong" alt="img/addimgicon.png"  src="img/addimgicon.png"/>
+						</label>
+						<input type="file"     id="imgfiles1speopel1" class="inuputfile" accept="image/*" onchange="javascript:setImagePreview('imgfiles1speopel1','imgfilesimg1speopel1','list','peopel');" value="" />
+				    </div>
+				</div>
+				<div class="bigimgshow padding20" v="2">查看示例</div>
+		</div>		
+			
+			
+			<div class="zijinbox">
+				<div class="page3-header padding30">
+					银行存款证明
+				</div>
+				<div class="imglist" v="zijin">
+					<div class="imgfilecontair inputcon">
+					    <img class="imgfileboxcancel inlistimg" src="img/closenum.png"/>
+						<label for="imgfiles1szijin1"  class="">
+							<img id="imgfilesimg1szijin1" class="show_img inputconkong" alt="img/addimgicon.png"  src="img/addimgicon.png"/>
+						</label>
+						<input type="file"     id="imgfiles1szijin1" class="inuputfile" accept="image/*" onchange="javascript:setImagePreview('imgfiles1szijin1','imgfilesimg1szijin1','list','zijin');" value="" />
+				    </div>
+				</div>
+				<div class="bigimgshow padding15" v="3">查看示例</div>
+				<!--<div class="bigimgshow padding15">查看农业银行示例</div>
+				<div class="bigimgshow padding15">查看中国银行1示例</div>
+				<div class="bigimgshow padding15 marbottom20">查看中国银行2示例</div>-->
+				
+				<!--<div class="iceazoo marbottom30">
+					要求冻结资金：无房且无贷款记录的客户，存款冻结金额为50万；其他情况的客户，存款冻结金额为100万。
+				</div>-->
+			</div>
+			
+			
+			<!--<div class="security">
+				    <div class="page3-header padding30">
+						社保证明或个税缴交证明<span class="page3-header-tips">(夫妻双方，上传其中一人即可；各大市民之家可查，记录应最近36个月满24个月无间断，补缴不算)</span>
+					</div>
+					<div class="imglist" v="shebao">
+						<div class="imgfilecontair inputcon">
+						    <img class="imgfileboxcancel inlistimg" src="img/closenum.png"/>
+							<label for="imgfiles5"  class="">
+								<img id="imgfilesimg5" class="show_img inputconkong" alt="img/addimgicon.png"  src="img/addimgicon.png"/>
+							</label>
+							<input type="file"     id="imgfiles5" class="inuputfile" accept="image/*" onchange="javascript:setImagePreview('imgfiles5','imgfilesimg5','list');" value="" />
+					    </div>
+					</div>
+		    </div>-->
+			
+			
+		</div>
+		
+		
+      <div class="btn  top122 marbottom100">提交审核</div>
+      
+    </div>
+
+
+
+
+</body>
+</html>
+<script type="text/javascript">
+	$(".backzoo").click(function(){
+		window.location.href="index2.html";
+	})
+	
+</script>
