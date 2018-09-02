@@ -62,14 +62,33 @@ class IndexController extends Controller
                 }
                 return view('Back.Index.index',compact('title','keyword','data','phone','name','filable'));
             }else{
-                $data = Buy::orderBy('id','desc')
-                    ->with([
-                        'img',
-                        'adminFirst',
-                        'adminFinal'
-                    ])
-                    ->where($keyword)
-                    ->paginate(50);
+                if($keyword['status'] == 8){
+                    if(session('admin') == 1){
+                        // 挂起中,针对每一个销售
+                        $data = Buy::orderBy('id','desc')->with(['img', 'adminFirst', 'adminFinal'])
+                            ->where([
+                                'hang_up'=>1
+                            ])->paginate(50);
+                    }else{
+                        // 挂起中,针对每一个销售
+                        $data = Buy::orderBy('id','desc')->with(['img', 'adminFirst', 'adminFinal'])
+                            ->where([
+                                'firstTrial'=>session('admin'),
+                                'hang_up'=>1
+                            ])->paginate(50);
+                    }
+
+                }else{
+                    $keyword['hang_up'] = 0;
+                    $data = Buy::orderBy('id','desc')
+                        ->with([
+                            'img',
+                            'adminFirst',
+                            'adminFinal'
+                        ])
+                        ->where($keyword)
+                        ->paginate(50);
+                }
                 return view('Back.Index.index',compact('title','keyword','data'));
             }
         }else{
@@ -94,6 +113,7 @@ class IndexController extends Controller
      */
     public function read($id,$type,$fromPage = 0){
 
+
         $data = Buy::with('img')->findOrFail($id);
 
         if($type == 1){
@@ -109,6 +129,12 @@ class IndexController extends Controller
 
         $data = Buy::with('img')->findOrFail($id);
 
+        if($data->img){
+            if($data->img->inCome){
+                $data->img->inCome = json_decode($data->img->inCome,true);
+            }
+        }
+
         return view('Back.Index.read',compact('data','type','fromPage'));
     }
 
@@ -119,7 +145,11 @@ class IndexController extends Controller
      */
     public function img($id,$type){
         $data = Buy::with('img')->findOrFail($id);
-
+        if($data->img) {
+            if ($data->img->inCome) {
+                $data->img->inCome = json_decode($data->img->inCome, true);
+            }
+        }
         return view('Back.Index.img',compact('data','type'));
     }
 
@@ -130,7 +160,19 @@ class IndexController extends Controller
      */
     public function imgOther($id,$type){
         $data = Buy::with('img')->findOrFail($id);
-//        dd($data);
+
+//        if($data->img){
+//            if($data->img->child_img){
+//                foreach ($data->img->child_img as $k=>$v){
+//                    $num    = $k+1;
+//                    $imgSrc = $v['accountBookpersonal'];
+////                    $idCard = $data->child[$k]['name'];
+//                    dd( $data->child);
+//                    $data->img->child_img_html = "<div class='swiper-slide  '  data-hash='child-img-$num'><img src='$imgSrc' alt='未成年人户口本个人页' title='child-img-'>";
+//                }
+//            }
+//        }
+//        dd($data->img);
         return view('Back.Index.imgOther',compact('data','type'));
     }
     /**
@@ -140,6 +182,7 @@ class IndexController extends Controller
      */
     public function disagreement(Request $request){
         $all = $request->except(['s']);
+
         Disagreement::saveImg($all,session('admin'));
         return response()->json(['code'=>200]);
     }
@@ -155,12 +198,13 @@ class IndexController extends Controller
         // 审核不通过
         // 如果存在复审人员的账号则视为复审不通过 否则为初审不通过
         $ifHaveFinal = Buy::where('id',$all['id'])->value('status');
+
         if($ifHaveFinal == 3){
             // 修改为复审不合格
             Buy::where('id',$all['id'])->update(['status'=>7]);
         }else{
             // 初审不合格
-            Buy::where('id',$all['id'])->update(['status'=>4]);
+            Buy::where('id',$all['id'])->update(['status'=>4,'hang_up'=>0]);
         }
 
         return response()->json(['code'=>200]);
@@ -172,9 +216,22 @@ class IndexController extends Controller
      */
     public function status(Request $request){
         $all = $request->except(['s']);
-        Buy::where('id',$all['id'])->update([
-            'status'=>$all['status']
-        ]);
+
+        if($all['status'] == 8){
+            // 暂时挂起
+            Buy::where('id',$all['id'])->update([
+                'hang_up'=>1
+            ]);
+        }else if($all['status'] == 9){
+            // 超级管理员打回数据为审核中，删除审核不通过的数据
+            Buy::where('id',$all['id'])->update(['status'=>1]);
+            // 进行审核不通过数据的删除
+            Disagreement::where('buyId',$all['id'])->delete();
+        }else{
+            Buy::where('id',$all['id'])->update([
+                'status'=>$all['status']
+            ]);
+        }
     }
 
 
@@ -482,30 +539,35 @@ class IndexController extends Controller
      */
 
     public function send(Request $request){
-        $phone = explode(',',$request->input('phone'));
+        $status = $request->input('status');
 
-        if($phone){
-            foreach ($phone as $v){
-                $status = Buy::where('phone',$v)->first();
+        $alisms         = new AliSmsController();
+        if($status == 2){
+            // 给全部成功的人发送短信
+            $phone = Buy::where(['status'=>2,'is_send'=>0])->get();
 
-                if(!$status->is_send){
-                    $alisms         = new AliSmsController();
-                    if($status->status == 5){
-                        $send = "审核";
-                        $content['name']         = $status->name;
-                        $content['houseName']    = HOUSENAME;
-//                        $content['type']         = $send;
-                        $content['registration'] = $status->registration;
-                        $alisms->smsPass($v,SIGNNAME,PASSCODE,$content);
-                    }else{
-                        $content['name']         = $status->name;
-                        $content['houseName']    = HOUSENAME;
-                        $alisms->smsPass($v,SIGNNAME,NOPASS,$content);
-                    }
-                }
+            foreach ($phone as $v) {
+
+                $content['name']            = $v->name;
+                $content['houseName']       = HOUSENAME;
+                $content['registration']    = $v->registration;
+                // TODO::这里还是有点问题
+                $bizid = $alisms->smsPass($v->phone, SIGNNAME, PASSCODE, $content);
+//                sleep(1);
+//                $alisms->querySendDetails($v->phone,$bizid);
+//                Buy::where('phone',$v->phone)->update(['is_send'=>1]);
             }
-            Buy::whereIn('phone',$phone)->update(['is_send'=>1]);
+        }else{
+            $phone = Buy::where(['status'=>4,'is_send'=>0])->get();
+            // 给全部失败的人发送短信
+            foreach ($phone as $v) {
+                $content['name']        = $v->name;
+                $content['houseName']   = HOUSENAME;
+                $alisms->smsPass($v->phone, SIGNNAME, NOPASS, $content);
+                Buy::where('phone',$v->phone)->update(['is_send'=>1]);
+            }
         }
+
         return response()->json(200);
     }
 
@@ -535,6 +597,11 @@ class IndexController extends Controller
             $id = Buy::where('status',3)
                 ->latest()
                 ->where('finalTrial',session('admin'))->value('id');
+        }else if($random == 8){
+            // 随机拿一条这个销售的挂起用户
+            $id = Buy::where('hang_up',1)
+                ->latest()
+                ->where('firstTrial',session('admin'))->value('id');
         }
         if($id){
             return response()->json(['code'=>200,'data'=>$id]);

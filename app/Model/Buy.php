@@ -12,7 +12,8 @@ class Buy extends Model
         "pay","loan","down","household","status","sale",
         "area","phone","address","email","parking","child",
         "other","firstTrial","finalTrial","phone","divorce","hzHouse","otherHouse"
-        ,"cardType","noHouse","generation","security","nothzHouse","id","hasChild","inCome"
+        ,"cardType","noHouse","generation","security","nothzHouse","id","hasChild","inCome",
+        "child_img"
     ];
 
     public function list_use(){
@@ -43,6 +44,9 @@ class Buy extends Model
         }
         return array();
     }
+
+
+
     /**
      * method:其他购房信息
      * author: hongwenyang
@@ -89,9 +93,11 @@ class Buy extends Model
 
             // 最后一项身份证
             if(isset($data['idCardfront'])){
+
                 if($data['idCardfront']){
                     $data['buyId'] = $isHave;
                     Imgs::ImgData($data);
+
                     $type = 'firstLast';
                     Buy::where('id',$isHave)->update(['status'=>0]);
                 }
@@ -102,6 +108,11 @@ class Buy extends Model
                     self::delOtherImg($data['other'],$isHave);
                 }
 
+                // 第二页处理未成年人图片
+                if(isset($data['child'])){
+
+                    self::delChildImg($data['child'],$isHave);
+                }
                 if(isset($buy['marriage'])){
                     // 如果是未婚单身则没有未成年人信息
                     if(in_array($buy['marriage'],["未婚单身"])){
@@ -215,13 +226,57 @@ class Buy extends Model
                 unset($otherImg[$v]);
             }
             if($otherImg){
-                $otherImg = json_encode($otherImg);
                 ksort($otherImg);
+                $otherImg = json_encode($otherImg);
             }else{
                 $otherImg = "";
             }
             Imgs::where('buyId',$buyId)->update([
                 'other_img'=>$otherImg
+            ]);
+        }
+    }
+
+    /**
+     * method: 删除不包含在第二步提交的身份证号的未成年人图片
+     * author: hongwenyang
+     * param:  $data 未成年人数据   $buyId 数据id
+     */
+
+    public static function delChildImg($data,$buyId){
+        $key = array();
+        foreach ($data as $k=>$v){
+            $idCard[$k] = $v['idCard'];
+        }
+
+        // 获取这调数据的其他购房者信息图片
+        $childImg = Imgs::where('buyId',$buyId)->value('child_img');
+
+        if($childImg){
+            foreach ($childImg as $k=>$v){
+
+                if(isset($v['idCard'])){
+                    if(!in_array($v['idCard'],$idCard)){
+                        $key[] = $k;
+                    }
+
+                }
+            }
+        }
+
+        if($key){
+            foreach ($key as $v){
+                unset($childImg[$v]);
+            }
+            if($childImg){
+                ksort($childImg);
+                $childImg = json_encode($childImg);
+            }else{
+                $childImg = "";
+            }
+
+            Imgs::where('buyId',$buyId)->update([
+                'child_img'=>$childImg
             ]);
         }
     }
@@ -310,20 +365,31 @@ class Buy extends Model
                 'idCardfront','idCardback','accountBook','accountBookpersonal',
                 'accountBookmain','housing_situation','personal_credit','fund_freezing',
                 'other_housing_situation','divorce_img','security_img','other_img',"marry",'death',
-                "inCome"
+                "inCome","child_img"
             ];
         }
 
         if($data['type'] == 3){
             $return = Imgs::where('buyId',$buyId)->select($fillabe)->first();
+            if($return){
+                if($return->inCome){
+                    $return->inCome = json_decode($return->inCome,true);
+                }
+            }
+
         }else{
 
             $return = Buy::where('phone',$data['phone'])->select($fillabe)->first();
+            if($return){
+                if($return->nothzHouse == null){
+                    $return->nothzHouse = "";
+                }
+            }
         }
 
         if($return){
             $status = Buy::where('phone',$data['phone'])->value('status');
-            if(in_array($status,[0,1,2,3])){
+            if(in_array($status,[0,1,3])){
                 $return->status = "审核中";
             }else if(in_array($status,[4,7])){
                 $return->status = "审核不通过";
@@ -331,16 +397,24 @@ class Buy extends Model
                     'buyId'=>$buyId,
                     'type'=>0
                 ])
-                    ->whereIn('key',[
-                        "idCardfront","idCardback","accountBook","accountBookmain",
-                        "accountBookpersonal","death","marry"
+                    ->whereOr([
+                        ['key',"like","inCome%"],
+                        ['key',"like","idCardfront%"],
+                        ['key',"like","idCardback%"],
+                        ['key',"like","accountBook%"],
+                        ['key',"like","accountBookmain%"],
+                        ['key',"like","accountBookpersonal%"],
+                        ['key',"like","death%"],
+                        ['key',"like","marry%"],
                     ])
+
                     ->select('key','reason')->get();
+
                 // 主购房人图片审核不通过
                 if($error->isNotEmpty()){
-                    $return->error = $error->toArray();
-                    $moreError = self::getArrayError($buyId,count($return->error));
-                    $return->error = array_merge($return->error,$moreError);
+                    $return->error  = $error->toArray();
+                    $moreError      = self::getArrayError($buyId,count($return->error));
+                    $return->error  = array_merge($return->error,$moreError);
                 }
 
                 $othererror = Disagreement::where([
@@ -351,12 +425,16 @@ class Buy extends Model
                 if($othererror->isNotEmpty()){
                     foreach ($othererror as $k=>$v){
                         $key                    = explode('-',$v->key);
-                        $othererror[$k]->key    = $key[1];
+                        if($key[0] == "child"){
+                            $othererror[$k]->key    = $key[0]."_".$key[1];
+                        }else{
+                            $othererror[$k]->key    = $key[1];
+                        }
                         $othererror[$k]->name   = $key[2];
                     }
                     $return->othererror = $othererror;
                 }
-            }else if($status == 5){
+            }else if($status == 2){
                 $return->status  = "审核通过";
             }else if($status == 6){
                 $return->status  = "资料没填完";
@@ -366,6 +444,11 @@ class Buy extends Model
     }
 
 
+    /**
+     * method: 登录的时候直接保存用户信息
+     * author: hongwenyang
+     * param:
+     */
     public static function saveMobileUser($data,$type= 1){
         if($type == 1){
             // 保存手机信息
@@ -431,6 +514,7 @@ class Buy extends Model
      */
     public static function getArrayError($buyId,$len){
         $return = array();
+
 
         // 个人征信
         $personal_credit = Disagreement::where(['buyId'=>$buyId,'type'=>0])
@@ -499,10 +583,25 @@ class Buy extends Model
 
         if($inCome->isNotEmpty()){
             $imgCount = Imgs::where('buyId',$buyId)->value('inCome');
-            $inCome_img = self::makeArrayError("inCome",count($imgCount),$buyId);
+
+            $inCome_img = self::makeArrayError("inCome",count(json_decode($imgCount,true)),$buyId);
             $return[$len] = $inCome_img;
             $len++;
         }
+
+
+
+//        // 未成年人户口本
+//        $childImg = Disagreement::where(['buyId'=>$buyId,'type'=>0])
+//            ->where('key',"like","%child_img%")
+//            ->select('key','reason')->get();
+//
+//        if($childImg->isNotEmpty()){
+//            $imgCount = Imgs::where('buyId',$buyId)->value('child_img');
+//            $childImg = self::makeArrayError("child_img",count($imgCount),$buyId);
+//            $return[$len] = $childImg;
+//            $len++;
+//        }
         return $return;
     }
 
@@ -513,10 +612,12 @@ class Buy extends Model
      */
     public static function makeArrayError($title,$imgCount,$buyId){
         $return['key'] = $title;
+
         for ($i=0;$i<$imgCount;$i++){
            $ifHave = Disagreement::where(['buyId'=>$buyId,'key'=>$title."_".($i+1)])->first();
 
            if($ifHave){
+
                $return['reason'][$i] = $ifHave->reason;
            }else{
                $return['reason'][$i] = "";

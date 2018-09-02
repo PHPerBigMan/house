@@ -69,6 +69,9 @@
                                             @elseif(strpos($v->key,'credit'))
                                             <?php $list = explode('_',$v->key);?>
                                                 个人征信<?php echo $list[2]?>
+                                            @elseif(strpos($v->key,'Come'))
+                                            <?php $list = explode('_',$v->key);?>
+                                                收入证明<?php echo $list[1]?>
                                             @elseif(strpos($v->key,'freez'))
                                             <?php $list = explode('_',$v->key);?>
                                                 资产证明<?php echo $list[2]?>
@@ -78,6 +81,7 @@
                                             @elseif($v->type == 1)
                                            <?php
                                                 $name = explode('-',$v->key);
+
                                             ?>
                                             {{ $name[2] }}的
                                             @if($name[1] == 'idCardfront')

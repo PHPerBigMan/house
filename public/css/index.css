@@ -129,7 +129,7 @@ body{padding:0; margin:0;}
     font-size: 16px;
 }
 .swiper-slide img{
-    width: 100%;
+    /*width: 100%;*/
 }
 .btn-read{
     border: 1px solid #10d2a4!important;

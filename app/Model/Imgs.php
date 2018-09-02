@@ -10,7 +10,8 @@ class Imgs extends Model
     protected $fillable = [
         'buyId','idCardfront','idCardback','accountBook','accountBookpersonal',
         'accountBookmain','housing_situation','personal_credit','fund_freezing',
-        'other_housing_situation','divorce_img','security_img','other_img','death','marry'
+        'other_housing_situation','divorce_img','security_img','other_img','death','marry',
+        "child_img","inCome"
     ];
 
     /**
@@ -95,6 +96,17 @@ class Imgs extends Model
         return array();
     }
     /**
+     * method: 子女户口本页面
+     * author: hongwenyang
+     * param:
+     */
+    public function getChildImgAttribute($value){
+        if($value){
+            return json_decode($value,true);
+        }
+        return array();
+    }
+    /**
      * method: 保存表单数据
      * author: hongwenyang
      * param:
@@ -128,7 +140,7 @@ class Imgs extends Model
             'buyId','idCardfront','idCardback','accountBook','accountBookpersonal',
             'accountBookmain','housing_situation','personal_credit','fund_freezing',
             'other_housing_situation','divorce_img','security_img',"other_img",'death'
-            ,'marry','idCard',"inCome"
+            ,'marry','idCard',"inCome","child_img"
         ];
 
 
@@ -175,6 +187,14 @@ class Imgs extends Model
             // 其他购房者的图片信息
             if($k == "other_img" && $data['other_img']){
                 $data['other_img'] = json_encode($data['other_img']);
+            }
+            // 未成年子女户口本数据
+            if($k == "child_img") {
+                if ($data['child_img']) {
+                    $data['child_img'] = json_encode($data['child_img']);
+                } else {
+                    $data['child_img'] = "";
+                }
             }
         }
 

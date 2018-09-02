@@ -7,6 +7,7 @@
     "require": {
         "php": "^7.1.3",
         "fideloper/proxy": "^4.0",
+        "flc/alidayu": "^2.0",
         "flc/dysms": "^1.0",
         "iscms/alisms-for-laravel": "^0.0.3",
         "itbdw/laravel-storage-qiniu": "^1.1",

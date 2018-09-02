@@ -73,11 +73,14 @@
     {{--<button class="layui-btn layui-btn-green" value="90">旋转90</button>--}}
     <button class="layui-btn layui-btn-green" value="180">旋转180</button>
     <button class="layui-btn layui-btn-green" value="270">旋转270</button>
-    <button class="layui-btn layui-btn-green" value="360">旋转360</button>
+    {{--<button class="layui-btn layui-btn-green" value="360">旋转360</button>--}}
     <button class="layui-btn layui-btn-green" value="big">放大</button>
     <button class="layui-btn layui-btn-green" value="small">缩小</button>
 </div>
 <div class="kong"></div>
+<?php
+$admin = \App\Model\Admin::where('id',session('admin'))->value('account');
+?>
 <div>
     <div>
         <table class="layui-table" style="width: 90%;margin-left: 5%">
@@ -97,8 +100,10 @@
                 <tr>
                     <td>姓名</td>
                     <td>{{ $v['name'] }}</td>
+                    @if($admin == "admin")
                     <td>手机号</td>
                     <td>{{ $v['phone'] }}</td>
+                    @endif
                     <td>证件类型</td>
                     <td>{{ $v['cardType'] }}</td>
                     <td>证件号</td>
@@ -120,7 +125,8 @@
         @endif
     @endif
     <div class="swiper-wrapper">
-
+        <div class="swiper-slide  " >
+        </div>
         {{--<div class="swiper-slide  ">--}}
         {{--<img src="{{ $data->img->idCardfront }}" alt="身份证正面"  title="idCardfront">--}}
         {{--</div>--}}
@@ -148,13 +154,25 @@
                 </div>
             @endforeach
         @endif
+
+
+        @if($data->child)
+            @if($data->img->child_img)
+                @foreach($data->img->child_img as $k=>$v)
+                    <div class="swiper-slide  "  data-hash="child-img-{{ $k+1 }}">
+
+                        <img src="{{ $v['accountBookpersonal']  }}" alt="未成年人户口本个人页" title="child-img-{{ $data->child[$k]['name'] }}">
+                    </div>
+                @endforeach
+            @endif
+        @endif
     </div>
     <div class="swiper-button-prev"></div>
     <div class="swiper-button-next"></div>
 </div>
 </body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.3/js/swiper.min.js"></script>
 <script src="/js/jquery.min.js?v=2.1.4"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.3/js/swiper.min.js"></script>
 <script src="/js/bootstrap.min.js?v=3.3.6"></script>
 <script src="/js/plugins/flot/jquery.flot.js"></script>
 <script src="/js/plugins/flot/jquery.flot.tooltip.min.js"></script>

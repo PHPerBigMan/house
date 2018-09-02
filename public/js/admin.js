@@ -18,9 +18,9 @@ function showMoreRandom(status) {
             location.href = '/admin/buy/read/'+obj.data+'/1/'+status;
         }else{
             layer.msg('没有更多可以审核的用户');
-            setTimeout(function () {
-                location.href = '/admin/index?status='+status;
-            },1000);
+            // setTimeout(function () {
+            //     location.href = '/admin/index?status='+status;
+            // },1000);
         }
     })
 }
@@ -96,25 +96,48 @@ function disagreement(id,type=0) {
     });
 }
 
+/*修改数据状态*/
 function pass(type,id) {
     /*type 1:初审通过 2:复审通过*/
     var msg     = "是否通过初审";
     var status  = 2;
     var fromPage = $('#fromPage').val();
     if(type == 2){
-        msg     = "是否通过复审";
-        status  = 5;
+        msg     = "确定挂起?";
+        status  = 8;
     }
+    if(type == 3){
+        msg     = "确定修改为审核中?";
+        status  = 9;
+    }
+
     layer.confirm(msg, {
         btn: ['确定','取消'] //按钮
     }, function(){
         $.get('/admin/buy/status',{id:id,status:status},function () {
-            layer.confirm("操作成功,是否继续审核",{
-                btn: ['继续审核','审核结束']
+            if(type == 3){
+                var getMsg = "操作成功,是否继续";
+                var leftBtn      = "继续操作";
+                var rightBtn    = "结束操作";
+            }else{
+                var getMsg = "操作成功,是否继续审核";
+                var leftBtn      = "继续审核";
+                var rightBtn    = "审核结束";
+            }
+            layer.confirm(getMsg,{
+                btn: [leftBtn,rightBtn]
             },function () {
 
-                showMoreRandom(fromPage)
+                if(type == 3){
+                    location.href = '/admin/index?status='+fromPage;
+                }else{
+                    showMoreRandom(fromPage)
+                }
+
             },function () {
+                if(type == 2){
+                    fromPage = 8;
+                }
                 location.href = '/admin/index?status='+fromPage;
             });
         });
@@ -296,6 +319,25 @@ function sendMessage() {
     }
 }
 
+function sendMessage1(status) {
+    layer.confirm(("确定发送短信通知？"), {
+        btn: ['确定','取消'] //按钮
+    }, function(){
+        $.get('/admin/send',{status:status},function (obj) {
+            if(obj == 200){
+                layer.msg("发送通知成功");
+            }else{
+                layer.msg("发送通知异常,请稍后再尝试");
+            }
+            // setTimeout(function () {
+            //     location.reload();
+            // },1500);
+        });
+    }, function(){
+        layer.msg("取消成功")
+    });
+
+}
 var mySwiper = new Swiper('.swiper-container', {
     hashNavigation: true,
     // hashnav:true,
@@ -313,6 +355,8 @@ var mySwiper = new Swiper('.swiper-container', {
         slideChangeTransitionStart: function(){
             var title        = this.slides.eq(this.activeIndex).find('img').attr('alt');
             var filedTitle   = this.slides.eq(this.activeIndex).find('img').attr('title');
+            console.log(title);
+
             $('#img-title').text(title);
             $('#disagreement').attr('title',filedTitle);
         },

@@ -91,22 +91,24 @@
                                                 <input type="text" name="name" autocomplete="off" class="layui-input">
                                             </div>
                                         </div>
+                                       <!--
                                         <div class="layui-inline">
                                             <label class="layui-form-label">销售</label>
                                             <div class="layui-input-inline">
                                                 <?php $sells = \App\Model\Admin::where('is_del',0)->get();?>
 
-                                                <select name="sale">
+                                            <select name="sale">
 
-                                                    <option value="无" selected="">无</option>
-                                                    @if($sells)
-                                                        @foreach($sells as $v)
-                                                            <option value="{{ $v->user }}" <?php if(isset($keyword['sale']) && $keyword['sale']==$v->user){ echo 'selected=""';}?>>{{ $v->user }}</option>
+                                                <option value="无" selected="">无</option>
+@if($sells)
+                                        @foreach($sells as $v)
+                                            <option value="{{ $v->user }}" <?php if(isset($keyword['sale']) && $keyword['sale']==$v->user){ echo 'selected=""';}?>>{{ $v->user }}</option>
                                                         @endforeach
-                                                    @endif
-                                                </select>
-                                            </div>
+                                    @endif
+                                            </select>
                                         </div>
+                                    </div>
+-->
                                         <input type="hidden" name="status" value="6">
                                         <button class="layui-btn index-button" lay-submit="" lay-filter="demo1">搜索</button>
                                     </div>
@@ -122,40 +124,54 @@
                             $adminName = \App\Model\Admin::where('id',session('admin'))->value('account');
                             ?>
                             <div class="" style="margin-top: 2%" >
+                                @if($admin == 'admin')
                                 <div  class="layui-nav-button">
+
                                     <a class="layui-btn layui-btn-lg layui-btn-normal" href="/admin/buy/excel/2">导出公司用表</a>
                                     <button type="button" class="layui-btn layui-btn-lg layui-btn-normal" id="test3"><i class="layui-icon"></i>导入中签结果</button>
+
                                 </div>
+                                @endif
                                 <ul class="layui-nav ul-border" style="background-color: white">
-                                    <li class="layui-nav-item <?php if($keyword['status'] == 0)echo 'layui-this'?>"><a href="/admin/index?status=0" class="index-font-weight <?php if($keyword['status'] == 0){echo 'index-active';}else{echo 'index-font-color';}?>">待初审(<?php echo \App\Model\Buy::where('status',0)->count();?> 人)</a></li>
-                                    <li class="layui-nav-item <?php if($keyword['status'] == 1)echo 'layui-this'?>"><a href="/admin/index?status=1" class="index-font-weight <?php if($keyword['status'] == 1){echo 'index-active';}else{echo 'index-font-color';}?>">初审中 (<?php echo \App\Model\Buy::where('status',1)->count();?> 人)</a></li>
-                                    <li class="layui-nav-item <?php if($keyword['status'] == 2)echo 'layui-this'?>"><a href="/admin/index?status=2" class="index-font-weight <?php if($keyword['status'] == 2){echo 'index-active';}else{echo 'index-font-color';}?>">初审通过(<?php echo \App\Model\Buy::where('status',2)->count();?> 人)</a></li>
-                                    <li class="layui-nav-item <?php if($keyword['status'] == 4)echo 'layui-this'?>"><a href="/admin/index?status=4" class="index-font-weight <?php if($keyword['status'] == 4){echo 'index-active';}else{echo 'index-font-color';}?>">初审不通过 (<?php echo \App\Model\Buy::where('status',4)->count();?> 人)</a></li>
-                                    <li class="layui-nav-item <?php if($keyword['status'] == 3)echo 'layui-this'?>"><a href="/admin/index?status=3" class="index-font-weight <?php if($keyword['status'] == 3){echo 'index-active';}else{echo 'index-font-color';}?>">复审中 (<?php echo \App\Model\Buy::where('status',3)->count();?> 人)</a></li>
-                                    <li class="layui-nav-item <?php if($keyword['status'] == 7)echo 'layui-this'?>"><a href="/admin/index?status=7" class="index-font-weight <?php if($keyword['status'] == 7){echo 'index-active';}else{echo 'index-font-color';}?>">复审不通过(<?php echo \App\Model\Buy::where('status',7)->count();?> 人)</a></li>
-                                    <li class="layui-nav-item <?php if($keyword['status'] == 5)echo 'layui-this'?>"><a href="/admin/index?status=5" class="index-font-weight <?php if($keyword['status'] == 5){echo 'index-active';}else{echo 'index-font-color';}?>">复审通过 &nbsp(<?php
-                                            echo \App\Model\Buy::where('status',5)->count();
-                                            ?> 人)</a></li>
+                                    <li class="layui-nav-item <?php if($keyword['status'] == 0)echo 'layui-this'?>"><a href="/admin/index?status=0" class="index-font-weight <?php if($keyword['status'] == 0){echo 'index-active';}else{echo 'index-font-color';}?>">待审核(<?php echo \App\Model\Buy::where('status',0)->count();?> 人)</a></li>
+                                    <li class="layui-nav-item <?php if($keyword['status'] == 1)echo 'layui-this'?>"><a href="/admin/index?status=1" class="index-font-weight <?php if($keyword['status'] == 1){echo 'index-active';}else{echo 'index-font-color';}?>">审核中 (<?php echo \App\Model\Buy::where(['status'=>1,'hang_up'=>0])->count();?> 人)</a></li>
+                                    <li class="layui-nav-item <?php if($keyword['status'] == 2)echo 'layui-this'?>"><a href="/admin/index?status=2" class="index-font-weight <?php if($keyword['status'] == 2){echo 'index-active';}else{echo 'index-font-color';}?>">审核通过(<?php echo \App\Model\Buy::where('status',2)->count();?> 人)</a></li>
+                                    <li class="layui-nav-item <?php if($keyword['status'] == 4)echo 'layui-this'?>"><a href="/admin/index?status=4" class="index-font-weight <?php if($keyword['status'] == 4){echo 'index-active';}else{echo 'index-font-color';}?>">审核不通过 (<?php echo \App\Model\Buy::where('status',4)->count();?> 人)</a></li>
+                                    <li class="layui-nav-item <?php if($keyword['status'] == 8)echo 'layui-this'?>"><a href="/admin/index?status=8" class="index-font-weight <?php if($keyword['status'] == 8){echo 'index-active';}else{echo 'index-font-color';}?>">挂起中 (<?php echo $admin == "admin" ? \App\Model\Buy::where(['hang_up'=>1])->count() :\App\Model\Buy::where(['firstTrial'=>session('admin'),'hang_up'=>1])->count();?> 人)</a></li>
                                 </ul>
 
                                 <div  class="layui-nav-button">
-
-                                    @if($keyword['status'] == 5 || $keyword['status'] == 6)
-                                        {{--审核通过显示【导出房管局用表】--}}
-                                        <a class="layui-btn layui-btn-lg layui-btn-normal" href="/admin/buy/excel/1">导出房管局用表</a>
-                                    @endif
-
-                                        @if(in_array($keyword['status'],[0,1,2,3]))
+                                    @if($admin == 'admin')
+                                        @if($keyword['status'] == 2)
                                             {{--审核通过显示【导出房管局用表】--}}
-                                            <button class="layui-btn layui-btn-green layui-btn-lg" onclick="showMoreRandom({{ $keyword['status'] }})">开始审核</button>
+                                            <a class="layui-btn layui-btn-lg layui-btn-normal" href="/admin/buy/excel/1">导出房管局用表</a>
+                                        @endif
+                                    @endif
+                                        @if(in_array($keyword['status'],[0,1,3,8]))
+                                            {{--审核通过显示【导出房管局用表】--}}
+                                            <button class="layui-btn layui-btn-green layui-btn-lg" onclick="showMoreRandom({{ $keyword['status'] }})">
+
+                                                @if($keyword['status'] == 0)
+                                                    开始审核
+                                                    @elseif($keyword['status'] == 1)
+                                                    继续审核
+                                                    @elseif($keyword['status'] == 3)
+                                                    继续复审
+                                                    @elseif($keyword['status'] == 8)
+                                                    继续审核
+                                                @endif
+                                            </button>
                                             {{--<a class="layui-btn layui-btn-green layui-btn-lg" href="/admin/buy/readRandom/0">开始审核</a>--}}
                                         @endif
-
-                                        @if($keyword['status']== 5)
-                                            <a class="layui-btn layui-btn-lg layui-btn-normal" href="/admin/buy/excel/3">导出公示表</a>
+                                        @if($admin == 'admin')
+                                            @if($keyword['status']== 5)
+                                                <a class="layui-btn layui-btn-lg layui-btn-normal" href="/admin/buy/excel/3">导出公示表</a>
+                                            @endif
                                         @endif
-                                    @if(in_array($keyword['status'],[4,7,5]))
-                                            <button class="layui-btn layui-btn-lg layui-btn-normal" onclick="sendMessage()">发送通知/回执单</button>
+                                        @if($admin == "admin")
+                                            @if(in_array($keyword['status'],[2,4]))
+                                                <button class="layui-btn layui-btn-lg layui-btn-normal" onclick="sendMessage1({{ $keyword['status'] }})">发送通知/回执单</button>
+                                            @endif
                                         @endif
                                 </div>
                                 <div class="layui-form">
@@ -192,9 +208,8 @@
                                             <th>最新提交时间</th>
                                             <th>审核状态</th>
                                             <th>通知状态</th>
-                                            <th>销售顾问</th>
-                                            <th>初审核人</th>
-                                            <th>复审核人</th>
+                                            {{--<th>销售顾问</th>--}}
+                                            <th>审核人</th>
                                             <th>操作</th>
                                         </tr>
                                         </thead>
@@ -217,20 +232,18 @@
                                                     <td>{{ $v->pay }}</td>
                                                     <td>{{ $v->updated_at }}</td>
                                                     <td>
+
                                                         @if($v->status == 0)
-                                                            <span class="label label-default">待初审
-                                                        @elseif($v->status == 1)
-                                                           <span class="label label-default">初审中
+                                                            <span class="label label-default">待审核
+                                                        @elseif($v->status == 1 && $v->hang_up == 0)
+                                                           <span class="label label-default">审核中
                                                         @elseif($v->status == 2)
-                                                           <span class="label label-default">初审通过
-                                                        @elseif($v->status == 3)
-                                                           <span class="label label-default">复审中
+                                                           <span class="label label-primary layui-btn-green">审核通过
                                                         @elseif($v->status == 4)
-                                                            <span class="label label-danger">初审不通过
-                                                        @elseif($v->status == 5)
-                                                            <span class="label label-primary layui-btn-green">复审通过
-                                                        @elseif($v->status == 7)
-                                                             <span class="label label-danger">复审不通过
+                                                             <span class="label label-danger">审核不通过
+                                                        @elseif($v->hang_up == 1)
+                                                             <span class="label label-default">挂起中
+                                                            @else
                                                         @endif
                                                     </td>
                                                     <td data-send="{{ $v->is_send }}">
@@ -240,15 +253,10 @@
                                                             <span class="label label-primary layui-btn-green">已通知
                                                         @endif
                                                     </td>
-                                                    <td>{{ $v->sale }}</td>
+                                                    {{--<td>{{ $v->sale }}</td>--}}
                                                     <td>
                                                         @if(isset($v->adminFirst->account))
                                                             {{ $v->adminFirst->user }}
-                                                        @endif
-                                                    </td>
-                                                    <td>
-                                                        @if(isset($v->adminFinal->account))
-                                                            {{ $v->adminFinal->user }}
                                                         @endif
                                                     </td>
                                                     <td>
@@ -265,7 +273,7 @@
                                                             @endif
                                                         @endif
                                                             {{--<button onclick="showMore({{ $v->id }},'{{ $v->name }}',2,{{ $v->status }})" class="btn btn-white btn-sm"><i class="fa fa-folder"></i> 查看 </button>--}}
-                                                            <a href="/admin/buy/read/{{ $v->id }}/2/{{ $v->status }}" class="btn btn-white btn-sm"><i class="fa fa-folder"></i> 查看 </a>
+                                                            <a href="/admin/buy/read/{{ $v->id }}/2/{{ $v->hang_up == 1 ? 8 : $v->status}}" class="btn btn-white btn-sm"><i class="fa fa-folder"></i> 查看 </a>
                                                             <button class="btn btn-white btn-sm" onclick="Userlist({{ $v->id }})"><i class="fa fa-tag"></i> 操作记录</button>
                                                         @if(in_array($v->status,[4,7]))
                                                                 <button class="btn btn-white btn-sm" onclick="disagreementList({{ $v->id }})"><i class="fa fa-tag"></i> 查看未通过原因</button>

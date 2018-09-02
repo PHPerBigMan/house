@@ -48,7 +48,7 @@ define("NOPASS","SMS_141580244");
 define("PASS1","SMS_141581161");
 define("MESSAGESEND","SMS_143711416");
 define("NOPASSOTHER","SMS_141580244");
-define("HOUSENAME","法兰公园");
+define("HOUSENAME","CNHD");
 define("DEBUG",0);
 define("URL",'http://falangongyuan.shoufangpai.com/storage/');
 define("URL1",'http://falangongyuan.shoufangpai.com/');

@@ -113,6 +113,7 @@ class ApiController extends Controller
             return response()->json(['code'=>403,'msg'=>'登录失效,请重新登录']);
         }
 
+
         $status = Buy::saveAll($all);
         if($status == 406){
             return response()->json(['code'=>403,'msg'=>'其他购房人信息为必填项']);
@@ -283,12 +284,14 @@ class ApiController extends Controller
 
 
             if($status->isNotEmpty()){
-                if(in_array($status[0]->status,[0,1,2,3])){
+                if(in_array($status[0]->status,[0,1,3])){
                     $data->status = "审核中";
                 }else if(in_array($status[0]->status,[4,7])){
                     $data->status = "审核不通过";
 
-                }else if($status[0]->status == 5){
+                }else if($status[0]->status == 2
+
+                ){
                     $data->status  = "审核通过";
                 }else if($status[0]->status == 6){
                     $data->status  = "资料没填完";
@@ -467,7 +470,7 @@ class ApiController extends Controller
             }else{
                 $data = Buy::where('phone',$phone)->select('name','idCard','registration','status')->first();
                 if($data){
-                    if($data->status == 5){
+                    if($data->status == 2){
                         // 审核通过
                         return response()->json(['code'=>200,'msg'=>"获取成功",'data'=>$data]);
                     }

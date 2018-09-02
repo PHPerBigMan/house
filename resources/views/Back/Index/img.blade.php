@@ -80,6 +80,9 @@
     <button class="layui-btn layui-btn-green" value="small">缩小</button>
 </div>
 <div class="kong"></div>
+<?php
+$admin = \App\Model\Admin::where('id',session('admin'))->value('account');
+?>
 <div>
     <div>
 
@@ -97,8 +100,13 @@
             <tr>
                 <td>姓名</td>
                 <td>{{ $data->name }}</td>
-                <td>手机号</td>
-                <td>{{ $data->phone }}</td>
+                @if($admin == "admin")
+                    <td>手机号</td>
+                    <td>{{ $data->phone }}</td>
+                    @else
+                    <td></td>
+                    <td></td>
+                @endif
                 <td>证件类型</td>
                 <td>{{ $data->cardType }}</td>
             </tr>
@@ -151,9 +159,11 @@
         <legend id="img-title">身份证正面</legend>
     </fieldset>
     {{--<span style="text-align: left;font-family: '微软雅黑 Light';line-height: 30px;color: #0d8ddb;font-size: 20px;margin-left: 5%" id="img-title">身份证正面</span>--}}
-    @if($data->firstTrial == session('admin') || $data->finalTrial == session('admin'))
-        @if(in_array($data->status,[1,2,3]))
-            <button class="layui-btn layui-btn-green" style="margin-bottom: 10px;float: right;width: 100px" id="disagreement" title="idCardfront" onclick="disagreement({{ $data->id }})">不合规</button>
+    @if($type == 1)
+        @if($data->firstTrial == session('admin') || $data->finalTrial == session('admin'))
+            @if(in_array($data->status,[1,2,3]))
+                <button class="layui-btn layui-btn-green" style="margin-bottom: 10px;float: right;width: 100px" id="disagreement" title="idCardfront" onclick="disagreement({{ $data->id }})">不合规</button>
+            @endif
         @endif
     @endif
     <div class="swiper-wrapper">
@@ -249,7 +259,7 @@
 <script src="/js/demo/peity-demo.min.js"></script>
 <script src="/layui/layui.all.js"></script>
 <script src="/js/admin.js"></script>
-<script type="text/javascript" src="http://www.jq22.com/demo/jqueryrotate201705160103/js/jQueryRotate.js"></script>
+{{--<script type="text/javascript" src="http://www.jq22.com/demo/jqueryrotate201705160103/js/jQueryRotate.js"></script>--}}
 <script>
     $(".buttonzoo button").click(function(){
 

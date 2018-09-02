@@ -25,26 +25,20 @@ $adminName = \App\Model\Admin::where('id',session('admin'))->value('account');
 ?>
 <body class="gray-bg">
 <div class="wrapper wrapper-content">
-    @if($data->status == 1)
+    @if($data->status == 1 && $data->hang_up == 0)
         {{--初审中--}}
-        <button class="layui-btn layui-btn-normal layui-btn-radius ">初审中</button>
+        <button class="layui-btn layui-btn-normal layui-btn-radius ">审核中</button>
         @elseif($data->status == 2)
         {{--待复审--}}
-        <button class="layui-btn layui-btn-normal layui-btn-radius">待复审</button>
-        @elseif($data->status == 3)
-        {{--复审中--}}
-        <button class="layui-btn layui-btn-normal layui-btn-radius">复审中</button>
+        <button class="layui-btn layui-btn-normal layui-btn-radius">审核通过</button>
         @elseif($data->status == 4)
         {{--审核不通过--}}
-        <button class="layui-btn layui-btn-danger layui-btn-radius">初审不通过</button>
-        @elseif($data->status == 5)
-        {{--审核通过--}}
-        <button class="layui-btn layui-btn-normal layui-btn-radius">审核通过</button>
-        @elseif($data->status == 7)
+        <button class="layui-btn layui-btn-danger layui-btn-radius">审核不通过</button>
+        @elseif($data->hang_up == 1)
         {{--审核不通过--}}
-        <button class="layui-btn layui-btn-danger layui-btn-radius">复审不通过</button>
+        <button class="layui-btn layui-btn-danger layui-btn-radius">挂起中</button>
         @endif
-        <button class="layui-btn layui-btn-primary layui-btn-radius" onclick="location.href='/admin/index?status={{ $data->status }}'">返回</button>
+        <button class="layui-btn layui-btn-primary layui-btn-radius" onclick="location.href='/admin/index?status={{ $fromPage == 8 ? 8 : $data->status}}'">返回</button>
     <div class="row">
         <div class="col-sm-3">
             <div class="ibox float-e-margins">
@@ -377,6 +371,23 @@ $adminName = \App\Model\Admin::where('id',session('admin'))->value('account');
                             @endforeach
                             </tbody>
                         </table>
+                        @if($data->img->child_img )
+
+                            @foreach($data->img->child_img as $k=>$v)
+                                <div class="file-box">
+                                    <div class="file img-div-p" >
+                                        <span class="corner"></span>
+
+                                        <div class="image" >
+                                            <img alt="image" class="img-responsive  img-div-center-other" src="{{ $v['accountBookpersonal'] }}" data-hash="child-img-{{ $k+1 }}">
+                                        </div>
+                                        <div class="file-name">
+                                            未成年子女户口本{{ $k+1 }}
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        @endif
                     @endif
                 </div>
                 <div class="file-box" style="width: 80%!important;margin-left: 5%">
@@ -394,7 +405,9 @@ $adminName = \App\Model\Admin::where('id',session('admin'))->value('account');
                                 <th>名字</th>
                                 <th>证件类型</th>
                                 <th>证件号码</th>
+                                @if($admin == 'admin')
                                 <th>手机号码</th>
+                                @endif
                             </tr>
                             </thead>
                             <tbody>
@@ -403,7 +416,9 @@ $adminName = \App\Model\Admin::where('id',session('admin'))->value('account');
                                     <td>{{ $v['name'] }}</td>
                                     <td>{{ $v['cardType'] }}</td>
                                     <td>{{ $v['idCard'] }}</td>
-                                    <td>{{ $v['phone'] }}</td>
+                                    @if($admin == 'admin')
+                                        <td>{{ $v['phone'] }}</td>
+                                    @endif
                                 </tr>
                             @endforeach
                             </tbody>
@@ -515,8 +530,12 @@ $adminName = \App\Model\Admin::where('id',session('admin'))->value('account');
                 <div style="width: 100%">
                 @if(in_array($data->status,[0,1]) && $data->firstTrial == session('admin'))
                     <div style="margin-left: 40%">
-                        <button class="layui-btn  layui-btn-lg btn-read"  onclick="nopass({{ $data->id }})">初审不通过</button>
-                        <button class="layui-btn layui-btn-green layui-btn-lg"  onclick="pass(1,{{ $data->id }})">初审通过</button>
+                        <button class="layui-btn  layui-btn-lg btn-read"  onclick="nopass({{ $data->id }})">审核不通过</button>
+                        <?php $ifHaveNoPass = \App\Model\Disagreement::where('buyId',$data->id)->value('id');?>
+                        @if(!$ifHaveNoPass)
+                            <button class="layui-btn layui-btn-green layui-btn-lg"  onclick="pass(1,{{ $data->id }})">审核通过</button>
+                        @endif
+                        <button class="layui-btn layui-btn-green layui-btn-lg"  onclick="pass(2,{{ $data->id }})">挂起</button>
                     </div>
                     @elseif($data->status== 3 && $data->finalTrial == session('admin'))
                     <div style="margin-left: 40%">
@@ -527,8 +546,20 @@ $adminName = \App\Model\Admin::where('id',session('admin'))->value('account');
                     @elseif($data->status == 5)
                         <button class="layui-btn layui-btn-green layui-btn-lg" style="margin-left: 45%">已通过复审</button>
                     @endif
+
                 </div>
             @endif
+            {{--这部分只有超级管理能看到 start--}}
+            @if($admin == "admin" && !in_array($data->status,[0,1]))
+            <div style="width: 100%">
+                <div style="margin-left: 40%">
+
+                    <button class="layui-btn layui-btn-green layui-btn-lg"  onclick="pass(3,{{ $data->id }})">修改为审核中</button>
+
+                </div>
+            </div>
+            @endif
+            {{--end--}}
             <input type="hidden" id="data-id" value="{{ $data->id }}">
             <input type="hidden" id="fromPage" value="{{ $fromPage }}">
         </div>

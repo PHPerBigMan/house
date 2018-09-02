@@ -6,9 +6,16 @@ use Flc\Dysms\Client;
 use Flc\Dysms\Request\SendSms;
 use Illuminate\Http\Request;
 use iscms\AlismsSdk\AlibabaAliqinFcSmsNumSendRequest;
-
+use Aliyun\Core\Config;
+use Aliyun\Core\Profile\DefaultProfile;
+use Aliyun\Core\DefaultAcsClient;
+use Aliyun\Api\Sms\Request\V20170525\SendSmsRequest;
+use Aliyun\Api\Sms\Request\V20170525\SendBatchSmsRequest;
+use Aliyun\Api\Sms\Request\V20170525\QuerySendDetailsRequest;
+require_once dirname(__DIR__) . '/Common/api_sdk/vendor/autoload.php';
 class AliSmsController extends Controller
 {
+    static $acsClient = null;
     /**
      * method: 阿里云发送短信
      * author: hongwenyang
@@ -40,6 +47,7 @@ class AliSmsController extends Controller
     {
         $config = config('alisms');
         $client = new  Client($config);
+
         $sendSms = new SendSms();
         $sendSms->setPhoneNumbers($phone);
         $sendSms->setSignName("$signName");
@@ -48,16 +56,28 @@ class AliSmsController extends Controller
         $result = $client->execute($sendSms);
 
         if($result->Code == "OK"){
-            return 200;
+            return $result->BizId;
         }
         return 403;
     }
 
 
+
     public function Search()
     {
-        $config = config('alisms');
-        $client = new  Client($config);
-        $req = new AlibabaAliqinFcSmsNumSendRequest();
+
+        $sms = new \SmsDemo();
+        dd(32);
+
+    }
+
+
+
+
+    public static function querySendDetails($phone,$bizid) {
+        $sms = new \SmsDemo();
+
+
+        dd($sms->querySendDetails($phone,$bizid));
     }
 }

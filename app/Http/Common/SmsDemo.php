@@ -39,11 +39,8 @@ class SmsDemo
         $domain = "dysmsapi.aliyuncs.com";
 
         // TODO 此处需要替换成开发者自己的AK (https://ak-console.aliyun.com/)
-//        $accessKeyId = "LTAIeVG1oYMwvuVs"; // AccessKeyId
-        // 链芯科技的
         $accessKeyId = "LTAIeRLVnGpXZLLP"; // AccessKeyId
 
-//        $accessKeySecret = "PwpcSVK8fzTL0qi0o6kydy8INypwmB"; // AccessKeySecret
         $accessKeySecret = "JvQlOK2efdkvsyopAigzJBLP129hjQ"; // AccessKeySecret
 
         // 暂时不支持多Region
@@ -71,7 +68,8 @@ class SmsDemo
      * 发送短信
      * @return stdClass
      */
-    public static function sendSms($signName,$template,$phone,$code) {
+    public static function sendSms() {
+
         // 初始化SendSmsRequest实例用于设置发送短信的参数
         $request = new SendSmsRequest();
 
@@ -79,17 +77,17 @@ class SmsDemo
         //$request->setProtocol("https");
 
         // 必填，设置短信接收号码
-        $request->setPhoneNumbers($phone);
+        $request->setPhoneNumbers("13858126467");
 
         // 必填，设置签名名称，应严格按"签名名称"填写，请参考: https://dysms.console.aliyun.com/dysms.htm#/develop/sign
-        $request->setSignName($signName);
+        $request->setSignName("洪文扬");
 
         // 必填，设置模板CODE，应严格按"模板CODE"填写, 请参考: https://dysms.console.aliyun.com/dysms.htm#/develop/template
-        $request->setTemplateCode($template);
+        $request->setTemplateCode("SMS_70115111");
 
         // 可选，设置模板参数, 假如模板中存在变量需要替换则为必填项
         $request->setTemplateParam(json_encode(array(  // 短信模板中字段的值
-            "code"=>$code,
+            "code"=>"12345",
         ), JSON_UNESCAPED_UNICODE));
 
         // 发起访问请求
@@ -151,8 +149,7 @@ class SmsDemo
      * 短信发送记录查询
      * @return stdClass
      */
-    public static function querySendDetails() {
-
+    public static function querySendDetails($phone,$bizid) {
         // 初始化QuerySendDetailsRequest实例用于设置短信查询的参数
         $request = new QuerySendDetailsRequest();
 
@@ -160,10 +157,11 @@ class SmsDemo
         //$request->setProtocol("https");
 
         // 必填，短信接收号码
-        $request->setPhoneNumber("13858126467");
+        $request->setPhoneNumber($phone);
 
         // 必填，短信发送日期，格式Ymd，支持近30天记录查询
-        $request->setSendDate("20180813");
+        $date = date("Ymd",time());
+        $request->setSendDate($date);
 
         // 必填，分页大小
         $request->setPageSize(10);
@@ -172,7 +170,7 @@ class SmsDemo
         $request->setCurrentPage(1);
 
         // 选填，短信发送流水号
-        $request->setBizId("yourBizId");
+        $request->setBizId($bizid);
 
         // 发起访问请求
         $acsResponse = static::getAcsClient()->getAcsResponse($request);
@@ -184,7 +182,7 @@ class SmsDemo
 
 // 调用示例：
 set_time_limit(0);
-header('Content-Type: text/plain; charset=utf-8');
+//header('Content-Type: text/plain; charset=utf-8');
 
 
 
