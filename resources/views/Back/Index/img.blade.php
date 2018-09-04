@@ -196,7 +196,7 @@ $admin = \App\Model\Admin::where('id',session('admin'))->value('account');
         @if($data->img->other_housing_situation)
             @foreach($data->img->other_housing_situation as $k=>$v)
                 <div class="swiper-slide" data-hash="other_housing_situation_{{ $k+1 }}">
-                    <img src="{{ $v }}" alt="其他地区房产证明{{ $k+1 }}" title="other_housing_situation_{{ $k+1 }}">
+                    <img src="{{ $v }}" alt="杭州四县住房证明{{ $k+1 }}" title="other_housing_situation_{{ $k+1 }}">
                 </div>
             @endforeach
         @endif

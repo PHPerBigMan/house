@@ -22,7 +22,7 @@ class ConfigController extends Controller
             $data->notice = "";
             $data->sell = date("Y-m-d H:i:s",time());
         }else{
-            $data->time = $data->start_at . '~' .$data->end_at;
+            $data->time = $data->start_at . ' - ' .$data->end_at;
         }
         $title = 'config';
         return view('Back.Config.index',compact('data','title'));
@@ -32,7 +32,7 @@ class ConfigController extends Controller
         $all = $request->except(['s']);
 
         if($all['time']){
-            $img = explode('~',$all['time']);
+            $img = explode(' - ',$all['time']);
 
             $all['start_at'] = $img[0];
             $all['end_at'] = $img[1];

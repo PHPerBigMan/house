@@ -372,6 +372,7 @@ class ApiController extends Controller
 
 
     public function sendMessageAli(){
+        dd(!strpos("other_housing_situation_","her_hous") && strpos("other_housing_situation_",'situation'));
         dd(strtotime("2018-08-31 09:00:00"));
 //        $id = 1000;
 //        $strlen = LEN-strlen($id);

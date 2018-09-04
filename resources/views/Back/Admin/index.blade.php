@@ -6,12 +6,14 @@
             <colgroup>
                 <col width="150">
                 <col>
+                <col>
                 <col width="350">
             </colgroup>
             <thead>
             <tr>
                 <th>账号</th>
                 <th>使用人</th>
+                <th>账号类型</th>
                 <th>操作</th>
             </tr>
             </thead>
@@ -20,6 +22,7 @@
                 <tr>
                     <td>{{ $v->account }}</td>
                     <td>{{ $v->user }}</td>
+                    <td>{{ $v->group == 0 ? "超级管理员" : "普通账号" }}</td>
                     <td>
                         <button class="layui-btn layui-btn-normal layui-btn-sm" onclick="adminAdd({{ $v->id }})"><i class="layui-icon"></i></button>
                         <button class="layui-btn layui-btn-normal layui-btn-sm" onclick="adminDel({{ $v->id }})"><i class="layui-icon"></i></button>

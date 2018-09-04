@@ -120,7 +120,7 @@
                                 </form>
                             </div>
                             <?php
-                            $admin = \App\Model\Admin::where('id',session('admin'))->value('user');
+                            $admin = \App\Model\Admin::where('id',session('admin'))->value('group');
                             $adminName = \App\Model\Admin::where('id',session('admin'))->value('account');
                             ?>
                             <div class="" style="margin-top: 2%" >
@@ -137,11 +137,11 @@
                                     <li class="layui-nav-item <?php if($keyword['status'] == 1)echo 'layui-this'?>"><a href="/admin/index?status=1" class="index-font-weight <?php if($keyword['status'] == 1){echo 'index-active';}else{echo 'index-font-color';}?>">审核中 (<?php echo \App\Model\Buy::where(['status'=>1,'hang_up'=>0])->count();?> 人)</a></li>
                                     <li class="layui-nav-item <?php if($keyword['status'] == 2)echo 'layui-this'?>"><a href="/admin/index?status=2" class="index-font-weight <?php if($keyword['status'] == 2){echo 'index-active';}else{echo 'index-font-color';}?>">审核通过(<?php echo \App\Model\Buy::where('status',2)->count();?> 人)</a></li>
                                     <li class="layui-nav-item <?php if($keyword['status'] == 4)echo 'layui-this'?>"><a href="/admin/index?status=4" class="index-font-weight <?php if($keyword['status'] == 4){echo 'index-active';}else{echo 'index-font-color';}?>">审核不通过 (<?php echo \App\Model\Buy::where('status',4)->count();?> 人)</a></li>
-                                    <li class="layui-nav-item <?php if($keyword['status'] == 8)echo 'layui-this'?>"><a href="/admin/index?status=8" class="index-font-weight <?php if($keyword['status'] == 8){echo 'index-active';}else{echo 'index-font-color';}?>">挂起中 (<?php echo $admin == "admin" ? \App\Model\Buy::where(['hang_up'=>1])->count() :\App\Model\Buy::where(['firstTrial'=>session('admin'),'hang_up'=>1])->count();?> 人)</a></li>
+                                    <li class="layui-nav-item <?php if($keyword['status'] == 8)echo 'layui-this'?>"><a href="/admin/index?status=8" class="index-font-weight <?php if($keyword['status'] == 8){echo 'index-active';}else{echo 'index-font-color';}?>">挂起中 (<?php echo $admin == 0 ? \App\Model\Buy::where(['hang_up'=>1])->count() :\App\Model\Buy::where(['firstTrial'=>session('admin'),'hang_up'=>1])->count();?> 人)</a></li>
                                 </ul>
 
                                 <div  class="layui-nav-button">
-                                    @if($admin == 'admin')
+                                    @if($admin == 0)
                                         @if($keyword['status'] == 2)
                                             {{--审核通过显示【导出房管局用表】--}}
                                             <a class="layui-btn layui-btn-lg layui-btn-normal" href="/admin/buy/excel/1">导出房管局用表</a>
@@ -163,12 +163,12 @@
                                             </button>
                                             {{--<a class="layui-btn layui-btn-green layui-btn-lg" href="/admin/buy/readRandom/0">开始审核</a>--}}
                                         @endif
-                                        @if($admin == 'admin')
+                                        @if($admin == 0)
                                             @if($keyword['status']== 5)
                                                 <a class="layui-btn layui-btn-lg layui-btn-normal" href="/admin/buy/excel/3">导出公示表</a>
                                             @endif
                                         @endif
-                                        @if($admin == "admin")
+                                        @if($admin == 0)
                                             @if(in_array($keyword['status'],[2,4]))
                                                 <button class="layui-btn layui-btn-lg layui-btn-normal" onclick="sendMessage1({{ $keyword['status'] }})">发送通知/回执单</button>
                                             @endif
@@ -197,7 +197,7 @@
 
                                             <th>购房登记号</th>
                                             <th>购房者姓名</th>
-                                            @if($admin == 'admin')
+                                            @if($admin == 0)
                                                 <th>手机号</th>
                                             @endif
                                             <th>无房家庭</th>
@@ -222,7 +222,7 @@
 
                                                     <td>{{ $v->registration }}</td>
                                                     <td>{{ $v->name }}</td>
-                                                    @if($admin == 'admin')
+                                                    @if($admin == 0)
                                                      <td width="50px">{{ $v->phone }}</td>
                                                     @endif
                                                     <td>{{ $v->haveHouse }}</td>

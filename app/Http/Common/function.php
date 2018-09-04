@@ -67,7 +67,7 @@ function excelData($type){
             ],
         ];
         $status = [
-            0,1,2,3,4,5
+            5
         ];
     }
 
@@ -82,9 +82,6 @@ function excelData($type){
                 $array[$k][1] = $v->name;
                 $array[$k][2] = "\t".$v->idCard."\t";
                 $array[$k][3] = $v->haveHouse;
-//                if($v->file){
-//                    $file = implode(',',$v->file);
-//                }
                 $array[$k][4] = implode(',',$v->file);
                 $array[$k][5] = $v->marriage;
                 $array[$k][6] = $v->pay;
@@ -113,15 +110,20 @@ function excelData($type){
                 $array[$k][14] = $v->address;
                 $array[$k][15] = $v->email;
                 $array[$k][16] = $v->parking;
-                $newChild = "";
                 $otherHouse = "";
-                if($v->child){
+                $newChild = "";
+                $child = array();
+                if($data[$k]->child){
                     foreach ($v->child as $key=>$value){
-                        $child[$k] = implode('-',$v->child[$key]);
+
+                        $child[$key] = implode('-',$v->child[$key]);
+
                     }
                     $newChild = implode(',',$child);
+
                 }
                 $array[$k][17] = $newChild;
+                $other = array();
                 if($v->other){
                     foreach ($v->other as $key=>$value){
                         $other[$k] = implode('-',$v->other[$key]);
@@ -132,10 +134,10 @@ function excelData($type){
                 $first = "";
                 $final = "";
                 if($v->firstTrial){
-                    $first = \App\Model\Admin::where('id',$v->firstTrial)->value('account');
+                    $first = \App\Model\Admin::where('id',$v->firstTrial)->value('user');
                 }
                 if($v->finalTrial){
-                    $final = \App\Model\Admin::where('id',$v->firstTrial)->value('account');
+                    $final = \App\Model\Admin::where('id',$v->finalTrial)->value('user');
                 }
                 $array[$k][19] = "初审人:".$first.'-复审人:'.$final;
             }
@@ -167,12 +169,12 @@ function excelData($type){
                     foreach ($v->other as $key=>$value){
                         if($type == 3){
 
-                            $name[$k]   = substr_cut($v->other[$key]['name']);
-                            $idCard[$k] = hidestr("\t".$v->other[$key]['idCard']."\t",6,8);
+                            $name[]   = substr_cut($v->other[$key]['name']);
+                            $idCard[] = hidestr("\t".$v->other[$key]['idCard']."\t",6,8);
                         }else{
 
-                            $name[$k]   = $v->other[$key]['name'];
-                            $idCard[$k] = "\t".$v->other[$key]['idCard']."\t";
+                            $name[]   = $v->other[$key]['name'];
+                            $idCard[] = "\t".$v->other[$key]['idCard']."\t";
                         }
 
                     }
@@ -182,21 +184,21 @@ function excelData($type){
                     foreach ($v->child as $key => $value) {
                         if ($type == 3) {
 
-                            $Child_name[$k] = substr_cut($v->child[$key]['name']);
-                            $Child_idCard[$k] = hidestr("\t" . $v->child[$key]['idCard'] . "\t", 6, 8);
+                            $Child_name[] = substr_cut($v->child[$key]['name']);
+                            $Child_idCard[] = hidestr("\t" . $v->child[$key]['idCard'] . "\t", 6, 8);
                         } else {
 
-                            $Child_name[$k] = $v->child[$key]['name'];
-                            $Child_idCard[$k] = "\t" . $v->child[$key]['idCard'] . "\t";
+                            $Child_name[] = $v->child[$key]['name'];
+                            $Child_idCard[] = "\t" . $v->child[$key]['idCard'] . "\t";
                         }
 
                     }
                 }
-
                 if($Child_idCard){
                     $name         = array_merge($name,$Child_name);
                     $idCard       = array_merge($idCard,$Child_idCard);
                 }
+
 
                 $array[$k][5] = implode(',',$name);
                 $array[$k][6] = implode(',',$idCard);

@@ -1,5 +1,15 @@
 @extends('Back.layout.head')
 @section('content')
+    <style>
+        .layui-input{
+            width: 90%!important;
+        }
+        .layui-form-label{
+            width: 150px;
+        }
+        .layui-input-block{ margin-left: 150px!important;}
+        .CheckInStartTime{color: red;line-height: 25px}
+    </style>
 <body class="gray-bg">
 <div class="layui-canvs"></div>
 <div class="wrapper-content">
@@ -24,13 +34,16 @@
                     </div>
                     <div class="layui-form-item">
                         <label class="layui-form-label">登记时间</label>
+
                         <div class="layui-input-block">
                             <div class="layui-inline">
                                 <div class="layui-input-inline">
-                                    <input type="text" class="layui-input" id="test10" placeholder=" ~ " style="width: 160%!important;" name="time" value="{{ $data->time }}">
+                                    <input type="text" class="layui-input" id="test10" placeholder="~" style="width: 160%!important;" name="time" value="{{ $data->time }}">
+                                    <span class="CheckInStartTime">*请注意登记开始和结束时间</span>
                                 </div>
                             </div>
                         </div>
+
                     </div>
                     <div class="layui-form-item">
                         <label class="layui-form-label">登记修改截止时间</label>
@@ -164,7 +177,7 @@
         laydate.render({
             elem: '#test10'
             ,type: 'datetime'
-            ,range: '~'
+            ,range: true
         });
         //日期时间选择器
         laydate.render({
@@ -175,6 +188,7 @@
         laydate.render({
             elem: '#test15'
             ,type: 'datetime'
+
         });
     });
 

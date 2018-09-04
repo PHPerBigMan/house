@@ -33,11 +33,6 @@ class IndexController extends Controller
                     $search = $keyword['name'];
                     $name = $search;
                 }
-                if($keyword['sale']){
-                    $filable = 'sale';
-                    $search = $keyword['sale'];
-                    $name = $search;
-                }
 
                 if($filable == 'all'){
                     $data = Buy::orderBy('id','desc')

@@ -41,7 +41,7 @@ require_once __DIR__.'/../app/Http/Common/function.php';
 define("NAME","FLGY");
 // 签名名称
 define("SIGNNAMETEST","测试项目");
-define("SIGNNAME","法兰公园");
+define("SIGNNAME","");
 // 模板编号
 define("PASSCODE","SMS_141581161");
 define("NOPASS","SMS_141580244");

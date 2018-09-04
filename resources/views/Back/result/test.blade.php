@@ -259,22 +259,23 @@
         </div>
         <div class="navbar-collapse collapse head-background " id="navbar">
             <?php
-            $admin = \App\Model\Admin::where('id',session('admin'))->value('user');
+            $admin = \App\Model\Admin::where('id',session('admin'))->first();
             ?>
             <ul class="navl navbar-nav head-ul " id="list-ul">
                 <li class=<?php if($title == 'house') echo "high-color"?>>
                     <a aria-expanded="false" href="/admin/index" class="blocka"><i class="fa fa-home fa-fw"></i> 购房者管理</a>
                     {{--购房者管理--}}
                 </li>
-                @if($admin == 'admin')
+                @if($admin->group == 0)
                     <li class=<?php if($title == 'account') echo "high-color"?>>
                         <a aria-expanded="false" role="button" href="/admin/list" class="blocka"><i class="fa fa-user"></i> 账号管理</a>
                     </li>
-                @endif
+
                 <li class=<?php if($title == 'config') echo "high-color"?>>
 
                     <a aria-expanded="false" role="button" href="/admin/config" class="blocka"> <i class="fa fa-gear"></i> 项目配置</a>
                 </li>
+                @endif
                 <li class=<?php if($title == 'resultPage') echo "high-color"?>>
 
                     <a aria-expanded="false" role="button" href="/admin/resultPage" class="blocka"> <i class="fa fa-share-alt-square"></i> 结果查询</a>
@@ -284,7 +285,7 @@
                 <li>
                     <a href="/loginout" style="padding: 15px 10px" class="blocka">
 
-                        <span>{{ $admin }}</span>
+                        <span>{{ $admin->user }}</span>
                         退出
                     </a>
                 </li>

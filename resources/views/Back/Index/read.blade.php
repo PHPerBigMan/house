@@ -20,8 +20,8 @@
 
 </head>
 <?php
-$admin = \App\Model\Admin::where('id',session('admin'))->value('user');
-$adminName = \App\Model\Admin::where('id',session('admin'))->value('account');
+$admin      = \App\Model\Admin::where('id',session('admin'))->value('group');
+$adminName  = \App\Model\Admin::where('id',session('admin'))->value('account');
 ?>
 <body class="gray-bg">
 <div class="wrapper wrapper-content">
@@ -64,7 +64,7 @@ $adminName = \App\Model\Admin::where('id',session('admin'))->value('account');
                                         @endif
                                 </td>
                             </tr>
-                            @if($admin == "admin")
+                            @if($admin ==0)
                             <tr>
                                 <td>手机号</td>
                                 <td>{{ $data->phone }}</td>
@@ -255,7 +255,20 @@ $adminName = \App\Model\Admin::where('id',session('admin'))->value('account');
                                 </div>
                             </div>
                         @endforeach
+                        @foreach($data->img->other_housing_situation as $k=>$v)
+                            <div class="file-box">
+                                <div class="file img-div-p">
+                                    <span class="corner"></span>
 
+                                    <div class="image">
+                                        <img alt="image" class="img-responsive  img-div-center" src="{{ $v }}" data-hash="other_housing_situation_{{ $k+1 }}">
+                                    </div>
+                                    <div class="file-name">
+                                        杭州四县住房证明{{ $k+1 }}
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
                         @if($data->img->inCome)
                         @foreach($data->img->inCome as $k=>$v)
                             <div class="file-box">
@@ -405,7 +418,7 @@ $adminName = \App\Model\Admin::where('id',session('admin'))->value('account');
                                 <th>名字</th>
                                 <th>证件类型</th>
                                 <th>证件号码</th>
-                                @if($admin == 'admin')
+                                @if($admin == 0)
                                 <th>手机号码</th>
                                 @endif
                             </tr>
@@ -416,7 +429,7 @@ $adminName = \App\Model\Admin::where('id',session('admin'))->value('account');
                                     <td>{{ $v['name'] }}</td>
                                     <td>{{ $v['cardType'] }}</td>
                                     <td>{{ $v['idCard'] }}</td>
-                                    @if($admin == 'admin')
+                                    @if($admin == 0)
                                         <td>{{ $v['phone'] }}</td>
                                     @endif
                                 </tr>
@@ -550,7 +563,7 @@ $adminName = \App\Model\Admin::where('id',session('admin'))->value('account');
                 </div>
             @endif
             {{--这部分只有超级管理能看到 start--}}
-            @if($admin == "admin" && !in_array($data->status,[0,1]))
+            @if($admin == 0 && !in_array($data->status,[0,1]))
             <div style="width: 100%">
                 <div style="margin-left: 40%">
 

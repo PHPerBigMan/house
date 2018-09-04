@@ -42,8 +42,10 @@
                                 <i class="layui-icon layui-timeline-axis"></i>
                                 <div class="layui-timeline-content layui-text">
                                     <h3 class="layui-timeline-title">
-                                        @if($v->key =='other_housing_situation' )
-                                            其他地区房产证明
+
+                                        @if(is_numeric(strpos($v->key,'her')))
+                                            <?php $list = explode('_',$v->key);?>
+                                            四县住房证明<?php echo $list[3]?>
                                             @elseif($v->key == 'idCardfront')
                                             身份证正面
                                             @elseif($v->key == 'idCardback')
@@ -58,7 +60,7 @@
                                             死亡证明
                                             @elseif($v->key == 'marry')
                                             结婚证
-                                            @elseif(strpos($v->key,'situation'))
+                                            @elseif(!strpos($v->key,'her') && strpos($v->key,'situation'))
                                             <?php $list = explode('_',$v->key);?>
                                                 杭州住房证明<?php echo $list[2]?>
 
