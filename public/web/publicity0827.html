@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>销售公示方案</title>
+		<meta name="hotcss" content="initial-dpr=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
+		<link rel="stylesheet" href="css/weui.min.css">
+		<link rel="stylesheet" href="css/jquery-weui.css">
+		<link rel="stylesheet" href="css/demos.css">
+		<link rel="stylesheet" type="text/css" href="css/app.css?v=3" />
+       <script src="js/hotcss.js" type="text/javascript" charset="utf-8"></script>
+	   <style type="text/css">
+			.imgback{position: fixed;top: 20px;width: 80px;height: 30px;left: 20px;border-radius: 30px;display: block;
+			overflow: hidden;background: #57bbf9;color: #ffffff;font-size: 16px;text-align: center;line-height: 30px;}
+			.bigimg{width:100%;margin-top: -1px;}
+			.bgheader{background: #ffffff;height:60px;width:100%;}
+	   </style>
+  </head>
+	<body class="info">
+	    <a href="?v=5" class="imgback">返回</a>
+	    <div class="bgheader"></div>
+		<img class="bigimg"  width="100%" src="img/pulible20180827.jpg?v=2"/>
+		</div>
+	</body>
+</html>
+<script src="js/jquery-2.1.4.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(window).ready(function(){
+		var v=Math.random();
+		$(".imgback").attr('href','home.html?v='+v);
+	})
+</script>

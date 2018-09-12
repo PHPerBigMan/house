@@ -1,0 +1,37 @@
+@charset"utf-8";
+@import 'px2rem'; //The first step px2rem import first
+$designWidth: 750; //Write SCSS before, must first define designWidth.
+* {margin: 0;padding: 0;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-text-size-adjust:none;    font-family: PingFangSC-Regular,Microsoft Yahei,Arial,sans-serif;}
+p{margin:0;padding:0}
+a{text-decoration: none!important;color: #888;}
+body {max-width: 768px !important;overflow-x: hidden;padding-bottom: 20px;
+margin: 0 auto;padding: 0;background-color: #fff;width: 100%;top: 0px;margin-top:0px;}
+.backimg{width:px2rem(44);height: px2rem(42);display: block;position: absolute;top: px2rem(21);left: px2rem(24);}
+.backfont{font-size: px2rem(32);line-height: px2rem(88);
+color: #57bbf9 !important;display: block;position: absolute;top: px2rem(0);left: px2rem(60);}
+.backzoo{position: absolute;top: 0px;width: px2rem(300);}
+.pagepreicon{width: px2rem(690);height: px2rem(400);display: block;margin: 0 auto;margin-top: px2rem(88);}
+
+
+.shakebox{width: px2rem(690);height: px2rem(88);border: 1px solid #E5E5E5;border-radius: px2rem(10);margin: 0 auto;}
+
+.btn{width: px2rem(560);height: px2rem(88);border-radius: px2rem(44);text-align: center;background: #bbe1f9;margin: 0 auto;cursor: pointer;
+line-height: px2rem(88);text-align: center;color: #fff;font-size: px2rem(34);}
+.margintop80{margin-top: px2rem(80);}
+.margintop70{margin-top: px2rem(70);}
+.margintop20{margin-top: px2rem(20);}
+.btnok{background: #57bbf9 !important;}
+
+input.lineboxinput::-webkit-input-placeholder{font-size: px2rem(30);color: #B0B0B0;font-family:"微软雅黑" ;}    /* 使用webkit内核的浏览器 */
+input.lineboxinput:-moz-placeholder{font-size: px2rem(30);color: #B0B0B0;font-family:"微软雅黑" ;}                  /* Firefox版本4-18 */
+input.lineboxinput::-moz-placeholder{font-size: px2rem(30);color: #B0B0B0;font-family:"微软雅黑" ;}                  /* Firefox版本19+ */
+input.lineboxinput:-ms-input-placeholder{font-size: px2rem(30);color:#B0B0B0;font-family:"微软雅黑" ;}           /* IE浏览器 */
+
+.shakeboxleft{color: #333333;font-size: px2rem(30);line-height: px2rem(88);float: left;width: px2rem(180);text-indent: px2rem(30);}
+.shakeboxinput{line-height: px2rem(42);float: left;display: block;font-size: px2rem(30);
+margin-top: px2rem(22);width: px2rem(480);border: none;outline: none;}
+
+.okimg{width: px2rem(462);height: px2rem(464);display: block;margin: 0 auto; margin-top: px2rem(148);}
+
+.pfont1{color: #0C7EFF;font-size: px2rem(30);text-align: center;line-height: px2rem(50);width: px2rem(360);margin: 0 auto;margin-top: px2rem(120);}
+.pfont2{color: #ff4064;font-size: px2rem(30);text-align: center;line-height: px2rem(50);width: px2rem(360);margin: 0 auto;margin-top: px2rem(120);}
