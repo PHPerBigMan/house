@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
+    <title>线上登记系统</title>
+    <meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="css/weui.min.css">
+		<link rel="stylesheet" href="css/jquery-weui.css">
+		<link rel="stylesheet" href="css/demos.min.css">
+		<script src="js/jquery-2.1.4.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/com.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-weui.js"></script>
+		<script src="js/pre.min.js?v=6" type="text/javascript" charset="utf-8"></script>
+</head>
+<body class="pre1" ontouchstart="">
+  <div href="pre.html" class="backzoo">
+	   <img  class="backimg" src="img/back.png"/>
+     <span class="backfont">返回</span>
+	</div>
+  <span class="loginout">退出</span>
+	<header class="demos-header padding20">
+	  <h3 class="demostitle">购房意向登记须知</h3>
+	</header>
+	<div class="content ">
+	</div>
+	<div class="weui-cells weui-cells_checkbox noborder">
+	  <label class="weui-cell weui-check__label noborder" for="s11">
+	    <div class="weui-cell__hd">
+	      <input type="checkbox" class="weui-check" name="checkbox1" id="s11" >
+	      <i class="weui-icon-checked"></i>
+	    </div>
+	    <div class="weui-cell__bd">
+	      <p>我同意 《登记须知》</p>
+	    </div>
+	  </label>
+	</div>
+	<div class="weui-btn-area weuibtnarea">
+	  <a class="weui-btn weui-btn_primary  weui-btn_disabled  awidthbox" href="javascript:" id="showTooltips">下一步</a>
+	</div>
+<script type="text/javascript">
+if(top.location.hostname != window.location.hostname){  
+　　top.location.href = window.location.href;  
+} 
+$(document).ready(function(){
+		$("#s11").click(function(){
+			var s11checked=$("#s11").prop("checked");
+			console.log(s11checked);
+			if(s11checked){
+				$(".awidthbox").removeClass("weui-btn_disabled");
+			}else{
+				$(".awidthbox").addClass("weui-btn_disabled");
+			}
+		})
+		
+		$("#showTooltips").click(function(){
+			var s11checked=$("#s11").prop("checked");
+			if(s11checked){
+				var v=Math.random();
+				window.location.replace("pre3.html?v="+v);
+			}
+		})
+	$(".backzoo").click(function(){
+		var v=Math.random();
+		window.location.href="home.html?v="+v;
+	})
+		$(".loginout").click(function(){
+				$.confirm({
+				  title: '提示',
+				  text: '退出后需重新登录,已完成的步骤将自动保存。',
+				  onOK: function () {
+				  	setlocalStorage('phone','');
+				  	var v=Math.random();
+				    window.location.href="login.html?v="+v;
+				  },
+				  onCancel: function () {
+				  }
+				});
+		})
+})
+</script>
+</body>
+</html>

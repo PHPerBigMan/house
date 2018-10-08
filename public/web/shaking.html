@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="hotcss" content="initial-dpr=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
+		<title>摇号结果查询</title>
+		<link rel="stylesheet" href="css/weui.min.css">
+		<link rel="stylesheet" href="css/jquery-weui.css">
+		<link rel="stylesheet" href="css/demos.min.css">
+		<link rel="stylesheet" type="text/css" href="css/app2.min.css?v=1" />
+        <script src="js/hotcss.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-2.1.4.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-weui.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/com.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/shaking.min.js?v=11" type="text/javascript" charset="utf-8"></script>
+</head>
+<body class="pagepre" ontouchstart="">
+<div class="backzoo">
+	 <img  class="backimg" src="img/back.png"/>
+     <span class="backfont">返回</span>
+</div>
+ <img class="pagepreicon" src="img/tu.png"/>
+ <div class="preinputbox">
+ 	<div class="pretop">手机号<span>(购房意向登记时使用的手机号)</span> </div>
+ 	<div class="inputcontain">
+ 		<input type="tel" name="" id="userphone" value="" placeholder="请输入手机号码" />
+ 	</div>
+ 	<div class="pretop margintop26">验证码</div>
+ 	<div class="inputcontain">
+ 		<input type="tel" name="" id="usercode" value="" placeholder="请输入验证码" />
+ 		<span class="getcodebtn postcodebg">获取验证码</span>
+ 	</div>
+ </div>
+ <div class="btn margintop marbottom ">查询</div>
+</body>
+</html>
+<script type="text/javascript">
+	$(".backzoo").click(function(){
+		var v=Math.random()
+		window.location.href="home.html?v="+v;
+	})
+</script>
