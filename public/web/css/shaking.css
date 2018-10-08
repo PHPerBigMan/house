@@ -1,0 +1,203 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-text-size-adjust: none;
+  font-family: PingFangSC-Regular,Microsoft Yahei,Arial,sans-serif; }
+
+p {
+  margin: 0;
+  padding: 0; }
+
+a {
+  text-decoration: none !important;
+  color: #888; }
+
+body {
+  max-width: 768px !important;
+  overflow-x: hidden;
+  padding-bottom: 20px;
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto;
+  padding: 0;
+  background-color: #fff;
+  width: 100%;
+  top: 0px;
+  margin-top: 0px; }
+
+.backimg {
+  width: 0.9386666667rem;
+  height: 0.896rem;
+  display: block;
+  position: absolute;
+  top: 0.448rem;
+  left: 0.512rem; }
+
+.backfont {
+  font-size: 0.6826666667rem;
+  line-height: 1.8773333333rem;
+  color: #57bbf9 !important;
+  display: block;
+  position: absolute;
+  top: 0rem;
+  left: 1.28rem; }
+
+.backzoo {
+  position: absolute;
+  top: 0px;
+  width: 6.4rem; }
+
+.pagepreicon {
+  width: 14.72rem;
+  height: 8.5333333333rem;
+  display: block;
+  margin: 0 auto;
+  margin-top: 1.8773333333rem; }
+
+.shakebox {
+  width: 14.72rem;
+  height: 1.8773333333rem;
+  border: 1px solid #E5E5E5;
+  border-radius: 0.2133333333rem;
+  margin: 0 auto; }
+
+.btn {
+  width: 11.9466666667rem;
+  height: 1.8773333333rem;
+  border-radius: 0.9386666667rem;
+  text-align: center;
+  background: #bbe1f9;
+  margin: 0 auto;
+  cursor: pointer;
+  line-height: 1.8773333333rem;
+  text-align: center;
+  color: #fff;
+  font-size: 0.7253333333rem; }
+
+.margintop80 {
+  margin-top: 1.7066666667rem; }
+
+.margintop70 {
+  margin-top: 1.4933333333rem; }
+
+.margintop20 {
+  margin-top: 0.4266666667rem; }
+
+.btnok {
+  background: #57bbf9 !important; }
+
+input.lineboxinput::-webkit-input-placeholder {
+  font-size: 0.64rem;
+  color: #B0B0B0;
+  font-family: "微软雅黑"; }
+
+/* 使用webkit内核的浏览器 */
+input.lineboxinput:-moz-placeholder {
+  font-size: 0.64rem;
+  color: #B0B0B0;
+  font-family: "微软雅黑"; }
+
+/* Firefox版本4-18 */
+input.lineboxinput::-moz-placeholder {
+  font-size: 0.64rem;
+  color: #B0B0B0;
+  font-family: "微软雅黑"; }
+
+/* Firefox版本19+ */
+input.lineboxinput:-ms-input-placeholder {
+  font-size: 0.64rem;
+  color: #B0B0B0;
+  font-family: "微软雅黑"; }
+
+/* IE浏览器 */
+.shakeboxleft {
+  color: #333333;
+  font-size: 0.64rem;
+  line-height: 1.8773333333rem;
+  float: left;
+  width: 3.84rem;
+  text-indent: 0.64rem; }
+
+.shakeboxinput {
+  line-height: 0.896rem;
+  float: left;
+  display: block;
+  font-size: 0.64rem;
+  margin-top: 0.4693333333rem;
+  width: 10.24rem;
+  border: none;
+  outline: none; }
+
+.okimg {
+  width: 9.856rem;
+  height: 9.8986666667rem;
+  display: block;
+  margin: 0 auto;
+  margin-top: 3.1573333333rem; }
+
+.pfont1 {
+  color: #0C7EFF;
+  font-size: 0.64rem;
+  text-align: center;
+  line-height: 1.0666666667rem;
+  width: 7.68rem;
+  margin: 0 auto;
+  margin-top: 1.7066666667rem; }
+
+.pfont2 {
+  color: #ff4064;
+  font-size: 0.64rem;
+  text-align: center;
+  line-height: 1.0666666667rem;
+  width: 7.68rem;
+  margin: 0 auto;
+  margin-top: 2.56rem; }
+
+.callbtn {
+  background: #57BBF9;
+  width: 11.9466666667rem;
+  height: 1.8773333333rem;
+  display: block;
+  border-radius: 0.9386666667rem;
+  line-height: 1.8773333333rem;
+  margin: 0 auto;
+  color: #FFFFFF;
+  text-align: center;
+  margin-top: 0.8533333333rem;
+  font-size: 0.7253333333rem;
+  margin-bottom: 2.1333333333rem; }
+
+.showimg {
+  background: #57BBF9;
+  width: 11.9466666667rem;
+  height: 1.8773333333rem;
+  display: block;
+  border-radius: 0.9386666667rem;
+  line-height: 1.8773333333rem;
+  margin: 0 auto;
+  color: #FFFFFF;
+  text-align: center;
+  margin-top: 1.28rem;
+  font-size: 0.7253333333rem; }
+
+#qrcode {
+  width: 4.096rem;
+  height: 4.096rem;
+  position: absolute;
+  top: 6.0586666667rem;
+  left: 50%;
+  margin-left: -2.048rem;
+  display: none; }
+
+#qrcode canvas {
+  width: 4.096rem;
+  height: 4.096rem; }
+
+iframe {
+  opacity: 0 !important;
+  display: none !important; }
+
+/*# sourceMappingURL=shaking.css.map */

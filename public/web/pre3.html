@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>线上登记系统</title>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<link rel="stylesheet" href="css/weui.min.css">
+	<link rel="stylesheet" href="css/jquery-weui.css">
+	<link rel="stylesheet" href="css/demos.min.css">
+	<script src="js/jquery-2.1.4.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/com.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/jquery-weui.js"></script>
+	<script src="js/pre.min.js?v=6" type="text/javascript" charset="utf-8"></script>
+</head>
+  <body class="pre3"  ontouchstart="">
+  <div href="pre1.html?v=2" class="backzoo">
+	   <img  class="backimg" src="img/back.png"/>
+     <span class="backfont">返回</span>
+	</div>
+	<span class="loginout">退出</span>
+	<header class="demos-header padding20">
+	  <h3 class="demostitle">注意事项</h3>
+	</header>
+	<div class="content"></div>
+	<div class="weui-cells weui-cells_checkbox noborder">
+	  <label class="weui-cell weui-check__label noborder" for="s11">
+	    <div class="weui-cell__hd">
+	      <input type="checkbox" class="weui-check"  name="checkbox1" id="s11" >
+	      <i class="weui-icon-checked"></i>
+	    </div>
+	    <div class="weui-cell__bd">
+	      <p>我同意 《注意事项》</p>
+	    </div>
+	  </label>
+	</div>  
+	<div class="weui-btn-area weuibtnarea">
+	  <a class="weui-btn weui-btn_primary  weui-btn_disabled  awidthbox" href="javascript:" id="showTooltips">下一步</a>
+	</div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#s11").click(function(){
+			var s11checked=$("#s11").prop("checked");
+			console.log(s11checked);
+			if(s11checked){
+				$(".awidthbox").removeClass("weui-btn_disabled");
+			}else{
+				$(".awidthbox").addClass("weui-btn_disabled");
+			}
+		})
+		$("#showTooltips").click(function(){
+			var s11checked=$("#s11").prop("checked");
+			if(s11checked){
+				var status=$("body").attr("status");
+				var v=Math.random();
+				if(status=="审核中"||status=="审核通过"||status=="审核不通过"){
+					window.location.href="showdata.html?v="+v;
+				}else{
+					window.location.href="index.html?v="+v;
+				}
+			}
+		})
+		$(".backzoo").click(function(){
+			var v=Math.random();
+			window.location.href='pre1.html?v='+v;
+		})
+		$(".loginout").click(function(){
+			$.confirm({
+			  title: '提示',
+			  text: '退出后需重新登录,已完成的步骤将自动保存。',
+			  onOK: function () {
+			  	setlocalStorage('phone','');
+			  	var v=Math.random();
+			    window.location.href="login.html?v="+v;
+			  },
+			  onCancel: function () {
+			  }
+			});
+	  })
+	})
+</script>
+</body>
+</html>
+

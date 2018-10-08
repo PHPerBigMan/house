@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="iso-8859-1"?><SUF70UninstallData>
+<DataFilePath>C:\Program Files (x86)\»ªÊÓ¶Á¿¨Æ÷¶àä¯ÀÀÆ÷²å¼þ\Uninstall\uninstall.dat</DataFilePath>
+<CPRegKey>SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\»ªÊÓ¶Á¿¨Æ÷¶àä¯ÀÀÆ÷²å¼þ1.2.0.3</CPRegKey>
+<EXELocation>C:\Program Files (x86)\»ªÊÓ¶Á¿¨Æ÷¶àä¯ÀÀÆ÷²å¼þ\uninstall.exe</EXELocation>
+<AppShortcutFolderPath>C:\Users\hwy\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\»ªÊÓ¶Á¿¨Æ÷¶àä¯ÀÀÆ÷²å¼þ</AppShortcutFolderPath>
+<UninstallReverseOrder>1</UninstallReverseOrder>
+<UninstallFiles>
+<File>
+<Filename>C:\Program Files (x86)\»ªÊÓ¶Á¿¨Æ÷¶àä¯ÀÀÆ÷²å¼þ\ÈËÐÐÉí·ÝÖ¤ÔÄ¶ÁÆ÷USB½ÓÈë²âÊÔÒ³Ãæ.html</Filename>
+<DecrementUsageCount>0</DecrementUsageCount>
+<UnregisterCOM>0</UnregisterCOM>
+<UnregisterFont>0</UnregisterFont>
+<FontDesc/>
+<BackupFile/>
+</File>
+<File>
+<Filename>C:\Program Files (x86)\»ªÊÓ¶Á¿¨Æ÷¶àä¯ÀÀÆ÷²å¼þ\Éí·ÝÖ¤ÔÄ¶ÁÆ÷½Ó¿ÚËµÃ÷ v2.2.1.doc</Filename>
+<DecrementUsageCount>0</DecrementUsageCount>
+<UnregisterCOM>0</UnregisterCOM>
+<UnregisterFont>0</UnregisterFont>
+<FontDesc/>
+<BackupFile/>
+</File>
+<File>
+<Filename>C:\Program Files (x86)\»ªÊÓ¶Á¿¨Æ÷¶àä¯ÀÀÆ÷²å¼þ\SysInfo.dll</Filename>
+<DecrementUsageCount>0</DecrementUsageCount>
+<UnregisterCOM>0</UnregisterCOM>
+<UnregisterFont>0</UnregisterFont>
+<FontDesc/>
+<BackupFile/>
+</File>
+<File>
+<Filename>C:\Program Files (x86)\»ªÊÓ¶Á¿¨Æ÷¶àä¯ÀÀÆ÷²å¼þ\USBDrv3.0-x64.msi</Filename>
+<DecrementUsageCount>0</DecrementUsageCount>
+<UnregisterCOM>0</UnregisterCOM>
+<UnregisterFont>0</UnregisterFont>
+<FontDesc/>
+<BackupFile/>
+</File>
+<File>
+<Filename>C:\Program Files (x86)\»ªÊÓ¶Á¿¨Æ÷¶àä¯ÀÀÆ÷²å¼þ\USBDrv3.0-x86.msi</Filename>
+<DecrementUsageCount>0</DecrementUsageCount>
+<UnregisterCOM>0</UnregisterCOM>
+<UnregisterFont>0</UnregisterFont>
+<FontDesc/>
+<BackupFile/>
+</File>
+<File>
+<Filename>C:\Program Files (x86)\»ªÊÓ¶Á¿¨Æ÷¶àä¯ÀÀÆ÷²å¼þ\¶þ´úÖ¤¶ÁÑé»ú¾ßUSBÇý¶¯°²×°ÊÖ²á.pdf</Filename>
+<DecrementUsageCount>0</DecrementUsageCount>
+<UnregisterCOM>0</UnregisterCOM>
+<UnregisterFont>0</UnregisterFont>
+<FontDesc/>
+<BackupFile/>
+</File>
+<File>
+<Filename>C:\Program Files (x86)\»ªÊÓ¶Á¿¨Æ÷¶àä¯ÀÀÆ÷²å¼þ\CVREUDC.EUF</Filename>
+<DecrementUsageCount>0</DecrementUsageCount>
+<UnregisterCOM>0</UnregisterCOM>
+<UnregisterFont>0</UnregisterFont>
+<FontDesc/>
+<BackupFile/>
+</File>
+<File>
+<Filename>C:\Program Files (x86)\»ªÊÓ¶Á¿¨Æ÷¶àä¯ÀÀÆ÷²å¼þ\CVREUDC.TTE</Filename>
+<DecrementUsageCount>0</DecrementUsageCount>
+<UnregisterCOM>0</UnregisterCOM>
+<UnregisterFont>0</UnregisterFont>
+<FontDesc/>
+<BackupFile/>
+</File>
+<File>
+<Filename>C:\Program Files (x86)\»ªÊÓ¶Á¿¨Æ÷¶àä¯ÀÀÆ÷²å¼þ\CertReader.ocx</Filename>
+<DecrementUsageCount>0</DecrementUsageCount>
+<UnregisterCOM>1</UnregisterCOM>
+<UnregisterFont>0</UnregisterFont>
+<FontDesc/>
+<BackupFile/>
+</File>
+<File>
+<Filename>C:\Program Files (x86)\»ªÊÓ¶Á¿¨Æ÷¶àä¯ÀÀÆ÷²å¼þ\npCertReader.dll</Filename>
+<DecrementUsageCount>0</DecrementUsageCount>
+<UnregisterCOM>0</UnregisterCOM>
+<UnregisterFont>0</UnregisterFont>
+<FontDesc/>
+<BackupFile/>
+</File>
+</UninstallFiles>
+<UninstallSupportFiles>
+<Filename>C:\Program Files (x86)\»ªÊÓ¶Á¿¨Æ÷¶àä¯ÀÀÆ÷²å¼þ\Uninstall\IRIMG1.JPG</Filename>
+<Filename>C:\Program Files (x86)\»ªÊÓ¶Á¿¨Æ÷¶àä¯ÀÀÆ÷²å¼þ\Uninstall\IRIMG2.JPG</Filename>
+</UninstallSupportFiles>
+<UninstallFolders>
+<FolderPath>C:\Program Files (x86)\»ªÊÓ¶Á¿¨Æ÷¶àä¯ÀÀÆ÷²å¼þ</FolderPath>
+<FolderPath>C:\Program Files (x86)\»ªÊÓ¶Á¿¨Æ÷¶àä¯ÀÀÆ÷²å¼þ\Uninstall</FolderPath>
+</UninstallFolders>
+<SessionVars>
+<Var>
+<Name>%ProductName%</Name>
+<Value>»ªÊÓ¶Á¿¨Æ÷¶àä¯ÀÀÆ÷²å¼þ</Value>
+</Var>
+<Var>
+<Name>%CompanyName%</Name>
+<Value>China-Vision</Value>
+</Var>
+<Var>
+<Name>%ProductVer%</Name>
+<Value>1.2.0.3</Value>
+</Var>
+<Var>
+<Name>%Copyright%</Name>
+<Value>Copyright © 2015 %CompanyName%</Value>
+</Var>
+<Var>
+<Name>%CompanyURL%</Name>
+<Value>http://www.chinaidcard.com</Value>
+</Var>
+<Var>
+<Name>%WindowTitle%</Name>
+<Value>%ProductName% Setup</Value>
+</Var>
+<Var>
+<Name>%WindowTitleUninstall%</Name>
+<Value>%ProductName% Uninstaller</Value>
+</Var>
+<Var>
+<Name>%AppFolder%</Name>
+<Value>C:\Program Files (x86)\»ªÊÓ¶Á¿¨Æ÷¶àä¯ÀÀÆ÷²å¼þ</Value>
+</Var>
+<Var>
+<Name>%AppShortcutFolderName%</Name>
+<Value>%ProductName%</Value>
+</Var>
+<Var>
+<Name>%ApplicationDataFolder%</Name>
+<Value>C:\Users\hwy\AppData\Roaming</Value>
+</Var>
+<Var>
+<Name>%ApplicationDataFolderCommon%</Name>
+<Value>C:\ProgramData</Value>
+</Var>
+<Var>
+<Name>%DesktopFolder%</Name>
+<Value>C:\Users\hwy\Desktop</Value>
+</Var>
+<Var>
+<Name>%DesktopFolderCommon%</Name>
+<Value>C:\Users\Public\Desktop</Value>
+</Var>
+<Var>
+<Name>%FontsFolder%</Name>
+<Value>C:\Windows\Fonts</Value>
+</Var>
+<Var>
+<Name>%MyDocumentsFolder%</Name>
+<Value>C:\Users\hwy\Documents</Value>
+</Var>
+<Var>
+<Name>%StartFolder%</Name>
+<Value>C:\Users\hwy\AppData\Roaming\Microsoft\Windows\Start Menu</Value>
+</Var>
+<Var>
+<Name>%StartFolderCommon%</Name>
+<Value>C:\ProgramData\Microsoft\Windows\Start Menu</Value>
+</Var>
+<Var>
+<Name>%StartProgramsFolder%</Name>
+<Value>C:\Users\hwy\AppData\Roaming\Microsoft\Windows\Start Menu\Programs</Value>
+</Var>
+<Var>
+<Name>%StartProgramsFolderCommon%</Name>
+<Value>C:\ProgramData\Microsoft\Windows\Start Menu\Programs</Value>
+</Var>
+<Var>
+<Name>%StartupFolder%</Name>
+<Value>C:\Users\hwy\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup</Value>
+</Var>
+<Var>
+<Name>%StartupFolderCommon%</Name>
+<Value>C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp</Value>
+</Var>
+<Var>
+<Name>%CommonDocumentsFolder%</Name>
+<Value>C:\Users\Public\Documents</Value>
+</Var>
+<Var>
+<Name>%MyMusicFolder%</Name>
+<Value>C:\Users\hwy\Music</Value>
+</Var>
+<Var>
+<Name>%MyMusicFolderCommon%</Name>
+<Value>C:\Users\Public\Music</Value>
+</Var>
+<Var>
+<Name>%MyPicturesFolder%</Name>
+<Value>C:\Users\hwy\Pictures</Value>
+</Var>
+<Var>
+<Name>%MyPicturesFolderCommon%</Name>
+<Value>C:\Users\Public\Pictures</Value>
+</Var>
+<Var>
+<Name>%MyVideosFolder%</Name>
+<Value>C:\Users\hwy\Videos</Value>
+</Var>
+<Var>
+<Name>%MyVideosFolderCommon%</Name>
+<Value>C:\Users\Public\Videos</Value>
+</Var>
+<Var>
+<Name>%ProgramFilesFolder64%</Name>
+<Value>C:\Program Files</Value>
+</Var>
+<Var>
+<Name>%CommonFilesFolder64%</Name>
+<Value>C:\Program Files\Common Files</Value>
+</Var>
+<Var>
+<Name>%ProgramFilesFolder%</Name>
+<Value>C:\Program Files (x86)</Value>
+</Var>
+<Var>
+<Name>%CommonFilesFolder%</Name>
+<Value>C:\Program Files (x86)\Common Files</Value>
+</Var>
+<Var>
+<Name>%SystemFolder%</Name>
+<Value>C:\WINDOWS\system32</Value>
+</Var>
+<Var>
+<Name>%WindowsFolder%</Name>
+<Value>C:\WINDOWS</Value>
+</Var>
+<Var>
+<Name>%SystemDrive%</Name>
+<Value>C:</Value>
+</Var>
+<Var>
+<Name>%TempFolder%</Name>
+<Value>C:\Users\hwy\AppData\Local\Temp</Value>
+</Var>
+<Var>
+<Name>%TempLaunchFolder%</Name>
+<Value>C:\Users\hwy\AppData\Local\Temp\_ir_sf_temp_0</Value>
+</Var>
+<Var>
+<Name>%RegOwner%</Name>
+<Value>HP Inc.</Value>
+</Var>
+<Var>
+<Name>%RegOrganization%</Name>
+<Value>HP Inc.</Value>
+</Var>
+<Var>
+<Name>%AppDrive%</Name>
+<Value>C:</Value>
+</Var>
+<Var>
+<Name>%DAOPath%</Name>
+<Value>C:\Program Files (x86)\Common Files\Microsoft Shared\DAO</Value>
+</Var>
+<Var>
+<Name>%LaunchUserName%</Name>
+<Value>hwy</Value>
+</Var>
+<Var>
+<Name>%LaunchUserDomain%</Name>
+<Value>DESKTOP-K627T6M</Value>
+</Var>
+<Var>
+<Name>%LaunchUserApplicationDataFolder%</Name>
+<Value>C:\Users\hwy\AppData\Roaming</Value>
+</Var>
+<Var>
+<Name>%LaunchUserDesktopFolder%</Name>
+<Value>C:\Users\hwy\Desktop</Value>
+</Var>
+<Var>
+<Name>%LaunchUserMyDocumentsFolder%</Name>
+<Value>C:\Users\hwy\Documents</Value>
+</Var>
+<Var>
+<Name>%LaunchUserStartProgramsFolder%</Name>
+<Value>C:\Users\hwy\AppData\Roaming\Microsoft\Windows\Start Menu\Programs</Value>
+</Var>
+<Var>
+<Name>%LaunchUserStartFolder%</Name>
+<Value>C:\Users\hwy\AppData\Roaming\Microsoft\Windows\Start Menu</Value>
+</Var>
+<Var>
+<Name>%LaunchUserStartupFolder%</Name>
+<Value>C:\Users\hwy\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup</Value>
+</Var>
+<Var>
+<Name>%LaunchUserMyMusicFolder%</Name>
+<Value>C:\Users\hwy\Music</Value>
+</Var>
+<Var>
+<Name>%LaunchUserMyPicturesFolder%</Name>
+<Value>C:\Users\hwy\Pictures</Value>
+</Var>
+<Var>
+<Name>%LaunchUserMyVideosFolder%</Name>
+<Value>C:\Users\hwy\Videos</Value>
+</Var>
+<Var>
+<Name>%SourceFilename%</Name>
+<Value>C:\Users\hwy\Desktop\20180425110101_5511\»ªÊÓ¶Á¿¨Æ÷¶àä¯ÀÀÆ÷²å¼þ.exe</Value>
+</Var>
+<Var>
+<Name>%SourceFolder%</Name>
+<Value>C:\Users\hwy\Desktop\20180425110101_5511</Value>
+</Var>
+<Var>
+<Name>%SourceDrive%</Name>
+<Value>C:</Value>
+</Var>
+<Var>
+<Name>%SpaceAvailable%</Name>
+<Value>124.17 GB</Value>
+</Var>
+<Var>
+<Name>%SpaceRequired%</Name>
+<Value>3.79 MB</Value>
+</Var>
+</SessionVars>
+</SUF70UninstallData>

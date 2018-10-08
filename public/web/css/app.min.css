@@ -1,0 +1,917 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-text-size-adjust: none;
+  font-family: PingFangSC-Regular,Microsoft Yahei,Arial,sans-serif; }
+
+p {
+  margin: 0;
+  padding: 0; }
+
+a {
+  text-decoration: none !important;
+  color: #888; }
+
+body {
+  max-width: 768px !important;
+  overflow-x: hidden;
+  padding-bottom: 20px;
+  margin: 0 auto;
+  padding: 0;
+  background-color: #f8f8f8;
+  width: 100%;
+  top: 0px;
+  margin-top: 0px; }
+
+.box {
+  width: 100%;
+  height: 2.048rem;
+  border-bottom: 1px solid #e5e5e5;
+  background: #fff;
+  line-height: 2.048rem;
+  text-indent: 0.512rem;
+  font-size: 0.64rem; }
+
+.colors {
+  color: #ff6c00; }
+
+.headerp {
+  color: #333333;
+  font-size: 0.6826666667rem;
+  text-align: center;
+  line-height: 1.8773333333rem;
+  font-weight: bold; }
+
+.navbox {
+  height: 2.1333333333rem;
+  width: 100%;
+  background: #fff;
+  overflow: hidden; }
+
+.navbox img {
+  display: block;
+  height: 1.0666666667rem;
+  margin: 0 auto;
+  margin-top: 0.5333333333rem; }
+
+.fontleft {
+  color: #C3C9D5;
+  line-height: 1.408rem;
+  margin-top: 0.4693333333rem;
+  text-indent: 0.64rem;
+  font-size: 0.5546666667rem; }
+
+.bigimgbtn {
+  color: #39a0f5;
+  line-height: 0.5546666667rem;
+  margin-top: 0.4693333333rem;
+  text-indent: 0.64rem;
+  font-size: 0.5546666667rem;
+  margin-top: -0.128rem;
+  margin-bottom: 0.4266666667rem; }
+
+.boxfff {
+  width: 100%;
+  background: #FFFFFF; }
+
+.linebox {
+  line-height: 1.8773333333rem;
+  min-height: 1.8773333333rem;
+  margin: 0 auto;
+  color: #333333;
+  font-size: 0.64rem;
+  position: relative;
+  width: 90%;
+  overflow: hidden; }
+
+.borderbottomline {
+  border-bottom: 1px solid #E5E5E5; }
+
+.lineboxright {
+  position: absolute;
+  right: 0.1066666667rem;
+  height: 1.8773333333rem;
+  line-height: 1.8773333333rem;
+  top: 0px;
+  color: #C4CAD6;
+  font-size: 0.64rem;
+  padding-right: 0.64rem; }
+
+.imggo {
+  width: 0.32rem;
+  height: 0.5546666667rem;
+  position: absolute;
+  right: 0.1066666667rem;
+  top: 0.6613333333rem; }
+
+.pagepre .btn {
+  margin-bottom: 80px; }
+
+.btn {
+  width: 11.9466666667rem;
+  height: 1.8773333333rem;
+  border-radius: 0.9386666667rem;
+  text-align: center;
+  background: #bbe1f9;
+  margin: 0 auto;
+  cursor: pointer;
+  line-height: 1.8773333333rem;
+  text-align: center;
+  color: #fff;
+  font-size: 0.7253333333rem; }
+
+.top122 {
+  margin-top: 2.6026666667rem; }
+
+.btnok {
+  background: #57bbf9 !important; }
+
+.picker-item {
+  font-size: 0.64rem; }
+
+.homepage {
+  max-width: 6.4rem;
+  display: block;
+  height: 1.8773333333rem;
+  line-height: 1.8773333333rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; }
+
+.lineboxleft {
+  line-height: 0.9386666667rem !important;
+  width: 8.5333333333rem;
+  display: block;
+  padding: 0.4266666667rem 0px; }
+
+.weui-input {
+  position: absolute;
+  left: -2000px; }
+
+.page1 {
+  overflow: hidden; }
+
+.lineboxinput {
+  border: none;
+  text-align: end;
+  outline: none;
+  float: right;
+  line-height: 1.024rem;
+  width: 8.5333333333rem;
+  height: 1.8773333333rem;
+  font-size: 0.64rem; }
+
+.lineboxbottom {
+  line-height: 0.9386666667rem !important;
+  display: block;
+  padding: 0rem 0px 0.4266666667rem 0px;
+  color: #C4CAD6; }
+
+input.lineboxinput::-webkit-input-placeholder {
+  font-size: 0.64rem;
+  color: #C4CAD6; }
+
+/* 使用webkit内核的浏览器 */
+input.lineboxinput:-moz-placeholder {
+  font-size: 0.64rem;
+  color: #C4CAD6; }
+
+/* Firefox版本4-18 */
+input.lineboxinput::-moz-placeholder {
+  font-size: 0.64rem;
+  color: #C4CAD6; }
+
+/* Firefox版本19+ */
+input.lineboxinput:-ms-input-placeholder {
+  font-size: 0.64rem;
+  color: #C4CAD6; }
+
+/* IE浏览器 */
+.page1 .linebox:last-child {
+  border-bottom: none !important; }
+
+.linanbox {
+  display: none; }
+
+.select1 {
+  display: none; }
+
+.marriagetimebox {
+  display: none; }
+
+.addbox {
+  text-indent: 1.024rem;
+  position: relative; }
+
+.add1icon {
+  width: 0.8106666667rem;
+  height: 0.8106666667rem;
+  position: absolute;
+  top: 0.5333333333rem;
+  left: 0rem;
+  display: block; }
+
+.color333 {
+  color: #333 !important; }
+
+.divshow > div {
+  font-size: 20.875px; }
+
+.pagepre {
+  background: #FFf; }
+
+.pagepreicon {
+  width: 14.72rem;
+  height: 8.5333333333rem;
+  display: block;
+  margin: 0 auto;
+  margin-top: 1.8773333333rem; }
+
+.preinputbox span {
+  color: #f4553c;
+  font-size: 0.512rem; }
+
+.preinputbox {
+  font-size: 0.64rem;
+  width: 14.72rem;
+  margin: 0 auto; }
+
+.pretop {
+  margin-top: 1.7493333333rem;
+  height: 0.9813333333rem;
+  line-height: 0.9813333333rem;
+  font-size: 0.7253333333rem; }
+
+.inputcontain {
+  border-bottom: 1px solid #E5E5E5;
+  width: 14.72rem;
+  margin: 0 auto;
+  height: 1.1093333333rem;
+  position: relative;
+  margin-top: 0.64rem; }
+
+.inputcontain input {
+  height: 1.0666666667rem;
+  display: block;
+  font-size: 0.7253333333rem;
+  outline: none;
+  border: none;
+  width: 10.6666666667rem;
+  line-height: 1.0666666667rem; }
+
+.inputcontain input::-webkit-input-placeholder {
+  font-size: 0.7253333333rem;
+  color: #B0B0B0; }
+
+/* 使用webkit内核的浏览器 */
+.inputcontain input:-moz-placeholder {
+  font-size: 0.7253333333rem;
+  color: #B0B0B0; }
+
+/* Firefox版本4-18 */
+.inputcontain input::-moz-placeholder {
+  font-size: 0.7253333333rem;
+  color: #B0B0B0; }
+
+/* Firefox版本19+ */
+.inputcontain input:-ms-input-placeholder {
+  font-size: 0.7253333333rem;
+  color: #B0B0B0; }
+
+/* IE浏览器 */
+.margintop26 {
+  margin-top: 0.5546666667rem !important; }
+
+.getcodebtn {
+  color: #378EEF !important;
+  font-size: 0.7253333333rem !important;
+  display: block;
+  float: right;
+  position: absolute;
+  line-height: 1.1093333333rem;
+  top: 0px;
+  right: 0px; }
+
+.margintop {
+  margin-top: 1.0666666667rem; }
+
+.marbottom {
+  margin-bottom: 1.92rem; }
+
+.postcodebg {
+  color: #bbe1f9 !important; }
+
+.prepend1 {
+  font-weight: 700;
+  color: #f4553c;
+  font-size: 0.64rem;
+  width: 14.72rem;
+  margin: 0 auto;
+  margin-top: 0.8533333333rem; }
+
+.prepend2 {
+  color: #f4553c;
+  font-size: 0.5973333333rem;
+  width: 14.72rem;
+  margin: 0 auto;
+  font-weight: inherit; }
+
+.noborder {
+  border: none !important; }
+
+.bordertop1 {
+  border-top: 1px solid #e5e5e5; }
+
+.yearold18head {
+  width: 90%;
+  margin: 0 auto;
+  font-size: 0.7253333333rem;
+  color: #666;
+  margin-bottom: 6px;
+  line-height: 1;
+  padding: 0.8533333333rem 0px;
+  border-top: 1px solid #e5e5e5; }
+
+.addzoochildhead {
+  height: 2.1333333333rem;
+  line-height: 2.1333333333rem;
+  width: 100%;
+  margin: 0 auto;
+  background: #fbfbfb;
+  color: #888;
+  text-indent: 0.64rem;
+  box-shadow: 0 1px 0 0 #e2e2e2;
+  position: relative; }
+
+.addzoochild {
+  width: 90%;
+  margin: 0 auto;
+  border: 1px solid #e5e5e5;
+  margin-bottom: 1.0666666667rem; }
+
+.marginbottom {
+  margin-bottom: 0px; }
+
+.addzoochildbox {
+  width: 90%;
+  margin: 0 auto;
+  overflow: hidden;
+  height: 2.1333333333rem;
+  line-height: 2.1333333333rem;
+  border-bottom: 1px solid #e5e5e5; }
+
+.addzoochildboxleft {
+  float: left;
+  width: 34%;
+  font-size: 0.64rem; }
+
+.addzoochildboxright {
+  float: right;
+  width: 57%;
+  position: relative;
+  font-size: 0.64rem; }
+
+.addzoochildboxright input {
+  width: 100%;
+  height: 1.92rem;
+  outline: none;
+  border: none;
+  font-size: 0.64rem;
+  display: block;
+  text-align: end;
+  margin-top: 0.1066666667rem; }
+
+.addzoochildboxright input::-webkit-input-placeholder {
+  font-size: 0.64rem;
+  color: #b9b2c3; }
+
+/* 使用webkit内核的浏览器 */
+.addzoochildboxright input:-moz-placeholder {
+  font-size: 0.64rem;
+  color: #b9b2c3; }
+
+/* Firefox版本4-18 */
+.addzoochildboxright input::-moz-placeholder {
+  font-size: 0.64rem;
+  color: #b9b2c3; }
+
+/* Firefox版本19+ */
+.addzoochildboxright input:-ms-input-placeholder {
+  font-size: 0.64rem;
+  color: #b9b2c3; }
+
+/* IE浏览器 */
+.border-bottom-none {
+  border-bottom: none; }
+
+.addzooaddmore {
+  width: 90%;
+  margin: 0 auto;
+  height: 2.1333333333rem;
+  line-height: 2.1333333333rem;
+  position: relative;
+  color: #39a0f5;
+  text-indent: 1.28rem;
+  font-size: 0.6826666667rem; }
+
+.add2icon {
+  width: 0.8106666667rem;
+  height: 0.8106666667rem;
+  position: absolute;
+  top: 0.64rem;
+  left: 0rem;
+  display: block; }
+
+.reduceicon {
+  width: 0.8106666667rem;
+  height: 0.8106666667rem;
+  position: absolute;
+  top: 0.64rem;
+  right: 0.64rem;
+  display: block; }
+
+.danumber {
+  height: 2.1333333333rem;
+  width: 90%;
+  margin: 0 auto;
+  border-bottom: 1px solid #e5e5e5;
+  overflow: hidden;
+  line-height: 2.1333333333rem; }
+
+.boxfff1left {
+  width: 42%;
+  float: left; }
+
+.boxfff1right {
+  width: 57%;
+  float: right;
+  overflow: hidden; }
+
+.removedanum {
+  float: right;
+  width: 2.1333333333rem;
+  height: 0.8533333333rem;
+  border-left: 1px solid #E5E5E5;
+  margin-top: 0.64rem;
+  margin-left: 0.4266666667rem; }
+
+.removedanum img {
+  width: 0.8533333333rem;
+  height: 0.8533333333rem;
+  display: block;
+  margin: 0 auto; }
+
+.danumberinput {
+  height: 1.28rem;
+  text-align: end;
+  outline: none;
+  border: none;
+  float: right;
+  width: 67.5%;
+  display: block;
+  margin-top: 0.4266666667rem;
+  font-size: 0.64rem; }
+
+.formdesc {
+  text-indent: 0.4266666667rem;
+  color: #b2b2b2;
+  font-size: 0.5973333333rem;
+  margin-top: 1.28rem; }
+
+.formdesc1 {
+  text-indent: 0.4266666667rem;
+  color: #b2b2b2;
+  font-size: 0.5973333333rem; }
+
+.addzooaddmoreda {
+  width: 90%;
+  margin: 0 auto;
+  height: 2.1333333333rem;
+  line-height: 2.1333333333rem;
+  position: relative;
+  color: #39a0f5;
+  text-indent: 1.28rem;
+  font-size: 0.6826666667rem; }
+
+.howtoget {
+  color: #39a0f5; }
+
+.marbottom100 {
+  margin-bottom: 2.1333333333rem; }
+
+.zzc {
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 10;
+  display: none;
+  height: 100%;
+  background: #000000;
+  overflow-y: auto; }
+
+.zzc img {
+  width: 100%; }
+
+.zzcclose {
+  width: 1.2373333333rem !important;
+  height: 1.2373333333rem;
+  display: block;
+  z-index: 11;
+  position: fixed;
+  right: 0.8533333333rem;
+  top: 1.7066666667rem; }
+
+.example1 {
+  display: none; }
+
+input.danumberinput::-webkit-input-placeholder {
+  font-size: 0.64rem;
+  color: #b9b2c3; }
+
+/* 使用webkit内核的浏览器 */
+input.danumberinput:-moz-placeholder {
+  font-size: 0.64rem;
+  color: #b9b2c3; }
+
+/* Firefox版本4-18 */
+input.danumberinput::-moz-placeholder {
+  font-size: 0.64rem;
+  color: #b9b2c3; }
+
+/* Firefox版本19+ */
+input.danumberinput:-ms-input-placeholder {
+  font-size: 0.64rem;
+  color: #b9b2c3; }
+
+/* IE浏览器 */
+.nohzpeople {
+  display: none; }
+
+.buyinfozoo {
+  display: none; }
+
+.page2 .marriage {
+  display: none; }
+
+.page3 {
+  max-width: 768px !important;
+  position: relative; }
+
+.page3-header {
+  font-size: 0.64rem;
+  color: #212224;
+  line-height: 0.8533333333rem;
+  padding: 0.8533333333rem 0px;
+  width: 92%;
+  margin: 0 auto; }
+
+.page3-header-tips {
+  font-size: 0.512rem;
+  color: #f4553c !important; }
+
+.imgfilebox {
+  width: 14.72rem;
+  margin: 0 auto;
+  margin-bottom: 0.2133333333rem;
+  position: relative; }
+
+.inuputfile {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  opacity: 0;
+  width: 10px;
+  left: -2000px;
+  top: 0px; }
+
+.clearboth {
+  clear: both; }
+
+.imgfileboxleft {
+  width: 7.04rem;
+  height: 4.6933333333rem;
+  float: left;
+  background-size: 7.04rem 4.5866666667rem; }
+
+.imgfileboxright {
+  width: 7.04rem;
+  height: 4.6933333333rem;
+  float: right;
+  background-size: 7.04rem 4.5866666667rem; }
+
+.imgfileboxleft img {
+  width: 7.04rem;
+  min-height: 4.6933333333rem; }
+
+.imgfileboxright img {
+  width: 7.04rem;
+  min-height: 4.6933333333rem; }
+
+label {
+  display: block; }
+
+.show_img {
+  width: 7.04rem;
+  display: block;
+  min-height: 4.6933333333rem; }
+
+.imgfilecontair {
+  width: 7.04rem;
+  height: 4.6933333333rem;
+  border: 1px solid #fff;
+  margin-left: 0.64rem; }
+
+.bordererror {
+  border: 1px solid #f4553c; }
+
+.bigimgshow {
+  font-size: 0.5973333333rem;
+  color: #39a0f5;
+  text-indent: 0.64rem;
+  width: 92%;
+  margin: 0 auto; }
+
+.padding30 {
+  padding: 0.64rem 0px !important; }
+
+.padding20 {
+  padding: 0.4266666667rem 0px !important; }
+
+.padding10 {
+  padding: 0.2133333333rem 0px !important; }
+
+.padding15 {
+  padding: 0.32rem 0px !important; }
+
+.marbottom10 {
+  margin-bottom: 0.2133333333rem; }
+
+.marbottom20 {
+  margin-bottom: 0.4266666667rem; }
+
+.marbottom30 {
+  margin-bottom: 0.64rem !important; }
+
+.marbottom40 {
+  margin-bottom: 0.8533333333rem; }
+
+.marbottom50 {
+  margin-bottom: 1.0666666667rem; }
+
+.overflowhidden {
+  overflow: hidden; }
+
+.iceazoo {
+  font-size: 0.5973333333rem;
+  color: #888;
+  line-height: 0.768rem;
+  width: 14.72rem;
+  margin: 0 auto; }
+
+.height40div {
+  height: 0.8533333333rem;
+  width: 100%; }
+
+.imgfileboxcancel {
+  position: absolute;
+  top: 0rem;
+  width: 0.9813333333rem !important;
+  display: none;
+  z-index: 5;
+  cursor: pointer;
+  height: 0.9813333333rem;
+  right: -0.4906666667rem;
+  min-height: 0.9813333333rem !important; }
+
+.inputcon {
+  position: relative;
+  padding-top: 0.4906666667rem;
+  margin-bottom: 2px;
+  z-index: 1; }
+
+.jsadd {
+  margin-top: 0.8533333333rem; }
+
+.borderbottomnone {
+  border-bottom: none !important; }
+
+.addzoochild:last-child {
+  margin-bottom: 0.4266666667rem; }
+
+.errcolor {
+  color: red !important; }
+
+.errcolor input::-webkit-input-placeholder {
+  color: red !important; }
+
+/* 使用webkit内核的浏览器 */
+.errcolor input:-moz-placeholder {
+  color: red !important; }
+
+/* Firefox版本4-18 */
+.errcolor input::-moz-placeholder {
+  color: red !important; }
+
+/* Firefox版本19+ */
+.errcolor input:-ms-input-placeholder {
+  color: red !important; }
+
+/* IE浏览器 */
+.page3 .boxmarry, .page3 .diebox, .page3 .lihunbox {
+  display: none; }
+
+.imglist {
+  width: 14.72rem;
+  overflow: hidden;
+  margin: 0 auto; }
+
+.imglist .inputcon {
+  float: left;
+  margin-bottom: 0.64rem;
+  width: 6.72rem;
+  margin-left: 0px; }
+
+.imglist .inputcon:nth-child(2n) {
+  margin-left: 0.64rem; }
+
+.imglist label {
+  width: 7.04rem;
+  height: 4.6933333333rem;
+  overflow: hidden;
+  border: 1px solid #e5e5e5; }
+
+.inputcon label {
+  width: 7.04rem;
+  height: 4.6933333333rem;
+  overflow: hidden;
+  border: 1px solid #e5e5e5; }
+
+.imgcolor {
+  border: 1px solid red !important; }
+
+.lastinfo .linan {
+  display: none; }
+
+.lastinfo .security {
+  display: none; }
+
+.page3 .zzc img {
+  display: none; }
+
+.page3 .zzc .zzcclose {
+  display: block !important; }
+
+.pagehome {
+  max-width: 768px;
+  margin: 0 auto;
+  position: relative;
+  width: 100%; }
+
+.pagehome img {
+  width: 100%;
+  display: block;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  z-index: 0; }
+
+.homezzc {
+  position: relative;
+  top: 0px;
+  right: 0px;
+  z-index: 1;
+  width: 100%;
+  background: url("../img/bg.jpg") no-repeat;
+  background-size: 100%; }
+
+.linkbox {
+  position: absolute;
+  top: 15.6586666667rem;
+  width: 100%;
+  margin-bottom: 0.8533333333rem;
+  z-index: 2; }
+
+.linkbox a {
+  display: block;
+  width: 11.9466666667rem;
+  height: 1.8773333333rem;
+  border-radius: 0.9386666667rem;
+  border: 1px solid #B39563;
+  margin: 0 auto;
+  margin-bottom: 0.4266666667rem;
+  color: #B39563;
+  font-size: 0.7253333333rem;
+  text-align: center;
+  line-height: 1.8773333333rem; }
+
+.linkbox a:active {
+  background: #B39563;
+  color: #FFFFFF; }
+
+.backimg {
+  width: 0.9386666667rem;
+  height: 0.896rem;
+  display: block;
+  position: absolute;
+  top: 0.448rem;
+  left: 0.512rem; }
+
+.backfont {
+  font-size: 0.6826666667rem;
+  line-height: 1.8773333333rem;
+  color: #57bbf9 !important;
+  display: block;
+  position: absolute;
+  top: 0rem;
+  left: 1.28rem; }
+
+.backzoo {
+  position: absolute;
+  top: 0px;
+  width: 6.4rem; }
+
+.info {
+  font-family: "微软雅黑"; }
+
+.nav_box {
+  width: 100%;
+  height: 1.8773333333rem;
+  border-bottom: 1px solid #E5E5E5; }
+
+.nav {
+  width: 33.33%;
+  height: 1.8346666667rem;
+  line-height: 1.8773333333rem;
+  text-align: center;
+  color: #333;
+  float: left; }
+
+.navactive {
+  color: #57BBF9;
+  border-bottom: 2px solid #57BBF9; }
+
+.imgnav {
+  width: 14.72rem;
+  height: 8.5333333333rem;
+  margin: 0 auto;
+  margin-top: 0.64rem;
+  display: block; }
+
+.details {
+  color: #333333;
+  font-size: 0.64rem;
+  width: 14.72rem;
+  margin: 0 auto;
+  margin-top: 0.64rem; }
+
+.infopage2, .infopage3 {
+  display: none; }
+
+.positionfixed {
+  position: fixed;
+  z-index: 2; }
+
+.imgfilecontairinputcon {
+  left: 50%;
+  margin-left: -7.4666666667rem; }
+
+.loginout {
+  font-size: 0.6826666667rem;
+  line-height: 1.8773333333rem;
+  color: #57bbf9 !important;
+  display: block;
+  position: absolute;
+  top: 0rem;
+  right: 0.64rem; }
+
+.page2 {
+  position: relative; }
+
+.backzoo {
+  cursor: pointer; }
+
+* {
+  touch-action: pan-y; }
+
+.bigimgzoo {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 9;
+  background: rgba(0, 0, 0, 0.42);
+  display: none;
+  overflow-y: scroll;
+  text-align: center;
+  line-height: 100%; }
+
+.bigimgzooimg {
+  width: 90%;
+  margin-top: 40px; }
+
+iframe {
+  opacity: 0 !important;
+  display: none !important; }
+
+/*# sourceMappingURL=app.css.map */

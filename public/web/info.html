@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>查看楼盘详情</title>
+		<meta name="hotcss" content="initial-dpr=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
+		<link rel="stylesheet" href="css/weui.min.css">
+		<link rel="stylesheet" href="css/jquery-weui.css">
+		<link rel="stylesheet" href="css/demos.min.css">
+		<link rel="stylesheet" type="text/css" href="css/app.min.css?v=3" />
+       <script src="js/hotcss.js" type="text/javascript" charset="utf-8"></script>
+	   <script src="js/jquery-2.1.4.min.js" type="text/javascript" charset="utf-8"></script>
+	   <script src="js/jquery-weui.js"></script>
+	   <script src="js/com.min.js?v=2" type="text/javascript" charset="utf-8"></script>
+  </head>
+<body class="info infopage">
+    <div href="home.html" class="imgback">返回</div>
+    <div class="bgheader">
+    	<div class="bgheaderright"></div>
+    </div>
+	<img class="bigimg"  width="100%" src="img/23.jpg"/>
+</body>
+</html>
+<script type="text/javascript">
+	$(".imgback").click(function(){
+		var v=Math.random();
+		window.location.href="home.html?v="+v;
+	})
+</script>
